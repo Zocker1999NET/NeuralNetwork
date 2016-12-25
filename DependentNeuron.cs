@@ -11,13 +11,19 @@ namespace NeuralNetwork {
 		protected List<Connection> inCon;
 
 		public void AddInputConnection(GeneralNeuron source, float weigth) {
-			rangeEx(weigth, KindOfFloatValue.Weigth);
 			inCon.Add(new Connection(source, this, weigth));
 		}
 
 		public Connection[] getInputConnections() {
 			return inCon.ToArray();
 		}
+
+		protected float sumUpInputs() {
+			float sum = 0f;
+			foreach(Connection con in inCon)
+				sum += con.WeightedInput;
+			return sum;
+		} 
 		
 	}
 }
