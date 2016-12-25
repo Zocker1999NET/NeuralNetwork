@@ -43,6 +43,7 @@
     <Compile Include="GeneralNeuron.cs" />
     <Compile Include="InputNeuron.cs" />
     <Compile Include="KindOfFloatValue.cs" />
+    <Compile Include="NeuralNetwork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ValueOutOfRangeException.cs" />
   </ItemGroup>
