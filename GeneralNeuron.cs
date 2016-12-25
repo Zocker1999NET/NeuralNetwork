@@ -32,7 +32,7 @@ namespace NeuralNetwork {
 
 			public float RawOutput {
 				get {
-					return output.GetCurrentOutput();
+					return output.CurrentValue;
 				}
 			}
 
@@ -44,9 +44,6 @@ namespace NeuralNetwork {
 
 		}
 
-		protected float lastVal;
-		protected float curVal;
-
 		public static bool ValueOutOfRange(float value) {
 			return ( -1 > value || value > 1 );
 		}
@@ -55,15 +52,21 @@ namespace NeuralNetwork {
 			if(ValueOutOfRange(value))
 				throw new ValueOutOfRangeException(type, value);
 		}
+		
+		private float curVal;
+
+		protected void changeValue(float newVal) {
+			curVal = newVal;
+
+		}
 
 		public abstract float CalculateOutput();
 
-		public virtual float GetLastOutput() {
-			return lastVal;
-		}
-
-		public virtual float GetCurrentOutput() {
-			return curVal;
+		public float CurrentValue {
+			get {
+				CalculateOutput();
+				return curVal;
+			}
 		}
 
 		public Connection[] GetOutputConnections() {
