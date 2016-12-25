@@ -16,7 +16,6 @@ namespace NeuralNetwork {
 			float weight = 0f;
 
 			public Connection(GeneralNeuron outNeuron, DependentNeuron inNeuron, float weigth) {
-				rangeEx(weigth, KindOfFloatValue.Weigth);
 				output = outNeuron;
 				input = inNeuron;
 				output.outCon.Add(this);
@@ -27,8 +26,19 @@ namespace NeuralNetwork {
 					return weight;
 				}
 				set {
-					rangeEx(value, KindOfFloatValue.Weigth);
 					weight = value;
+				}
+			}
+
+			public float RawOutput {
+				get {
+					return output.GetCurrentOutput();
+				}
+			}
+
+			public float WeightedInput {
+				get {
+					return RawOutput * weight;
 				}
 			}
 
@@ -43,7 +53,7 @@ namespace NeuralNetwork {
 
 		protected static void rangeEx(float value, KindOfFloatValue type = KindOfFloatValue.Unknown) {
 			if(ValueOutOfRange(value))
-				throw new ValueOutOfRangeException(value);
+				throw new ValueOutOfRangeException(type, value);
 		}
 
 		public abstract float CalculateOutput();
