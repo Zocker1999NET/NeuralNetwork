@@ -7,13 +7,12 @@ using NeuralNetwork.Exceptions;
 namespace NeuralNetwork {
 	public abstract class GeneralNeuron {
 
-		private List<Connection> outCon = new List<Connection>();
-
 		public class Connection {
 
 			GeneralNeuron output;
 			DependentNeuron input;
 			float weight = 0f;
+			bool change = false;
 
 			public Connection(GeneralNeuron outNeuron, DependentNeuron inNeuron, float weigth) {
 				output = outNeuron;
@@ -30,15 +29,21 @@ namespace NeuralNetwork {
 				}
 			}
 
-			public float RawOutput {
-				get {
-					return output.CurrentValue;
-				}
+			public void FlagChange() {
+				change = true;
+				input.CalculateOutput();
 			}
 
 			public float WeightedInput {
 				get {
-					return RawOutput * weight;
+					change = false;
+					return output.CurrentValue * weight;
+				}
+			}
+
+			public bool Change {
+				get {
+					return change;
 				}
 			}
 
@@ -52,13 +57,16 @@ namespace NeuralNetwork {
 			if(ValueOutOfRange(value))
 				throw new ValueOutOfRangeException(type, value);
 		}
-		
+
+		private List<Connection> outCon = new List<Connection>();
 		private float curVal;
 
-		protected void changeValue(float newVal) {
-			curVal = newVal;
+		protected NeuralNetwork net;
 
+		public GeneralNeuron(NeuralNetwork network) {
+			net = network;
 		}
+
 
 		public abstract float CalculateOutput();
 
@@ -66,6 +74,12 @@ namespace NeuralNetwork {
 			get {
 				CalculateOutput();
 				return curVal;
+			}
+			protected set {
+				rangeEx(value);
+				curVal = value;
+				foreach(Connection con in outCon)
+					con.FlagChange();
 			}
 		}
 
