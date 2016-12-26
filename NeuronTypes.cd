@@ -14,7 +14,7 @@
     </NestedTypes>
     <TypeIdentifier>
       <HashCode>QAAAAAAAAAAAAAgAAAAgAAAAAAAwAAAAAAAABAAQAAA=</HashCode>
-      <FileName>GeneralNeuron.cs</FileName>
+      <FileName>Connection.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="NeuralNetwork.DependentNeuron">
@@ -41,7 +41,7 @@
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAQAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAQAAA=</HashCode>
       <FileName>InputNeuron.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -69,8 +69,15 @@
   </Class>
   <Class Name="NeuralNetwork.DelegateInputNeuron">
     <Position X="10" Y="5.25" Width="2" />
+    <NestedTypes>
+      <Delegate Name="NeuralNetwork.DelegateInputNeuron.InputDelegate" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>DelegateInputNeuron.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAgAAAAAAAAAAAAAAAAAAAECAAAAAAAAAAAAAA=</HashCode>
       <FileName>DelegateInputNeuron.cs</FileName>
     </TypeIdentifier>
   </Class>
