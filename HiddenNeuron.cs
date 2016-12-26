@@ -6,5 +6,7 @@ using System.Text;
 namespace NeuralNetwork {
 	public class HiddenNeuron : DependentNeuron {
 
+		public HiddenNeuron(NeuralNetwork network) : base(network) { }
+
 	}
 }
