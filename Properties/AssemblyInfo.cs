@@ -11,10 +11,10 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("NeuralNetwork")]
-[assembly: AssemblyCopyright("Copyright ©  2016")]
+[assembly: AssemblyCopyright("Copyright © Felix Stupp 2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
-[assembly: NeutralResourcesLanguage("de")]
+[assembly: NeutralResourcesLanguage("en-US")]
 
 // Versionsinformationen für eine Assembly bestehen aus den folgenden vier Werten:
 //
