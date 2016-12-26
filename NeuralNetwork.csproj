@@ -49,11 +49,11 @@
     <Compile Include="GeneralNeuron.cs" />
     <Compile Include="HiddenNeuron.cs" />
     <Compile Include="InputNeuron.cs" />
-    <Compile Include="KindOfFloatValue.cs" />
+    <Compile Include="Exceptions\KindOfFloatValue.cs" />
     <Compile Include="NeuralNetwork.cs" />
     <Compile Include="OutputNeuron.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ValueOutOfRangeException.cs" />
+    <Compile Include="Exceptions\ValueOutOfRangeException.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

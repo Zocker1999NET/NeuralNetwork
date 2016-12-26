@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NeuralNetwork {
-	namespace Exceptions {
-		public enum KindOfFloatValue {
-			Unknown,
-			Weigth,
-		}
+namespace NeuralNetwork.Exceptions {
+	public enum KindOfFloatValue {
+		Unknown,
+		Weigth,
 	}
 }
