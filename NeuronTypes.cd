@@ -26,38 +26,23 @@
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AIAAAQAAAAAAAQAQAAAAAEAAAAAAAAAAAAAAAAAQAAA=</HashCode>
+      <HashCode>AAAEAQAAAAAAAQAQAAAAAEAAAAAAAAAAAAAAAAAQAAA=</HashCode>
       <FileName>DependentNeuron.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="NeuralNetwork.InputNeuron">
-    <Position X="6.75" Y="5.25" Width="2" />
+    <Position X="6.75" Y="5.75" Width="2" />
     <InheritanceLine Type="NeuralNetwork.GeneralNeuron" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
       <Path>
         <Point X="2.75" Y="1.188" />
         <Point X="3.083" Y="1.188" />
-        <Point X="3.083" Y="5.959" />
-        <Point X="6.75" Y="5.959" />
+        <Point X="3.083" Y="6.25" />
+        <Point X="6.75" Y="6.25" />
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAQAAA=</HashCode>
       <FileName>InputNeuron.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="NeuralNetwork.HiddenNeuron">
-    <Position X="6.75" Y="2.75" Width="2" />
-    <InheritanceLine Type="NeuralNetwork.DependentNeuron" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="5.75" Y="1" />
-        <Point X="6.125" Y="1" />
-        <Point X="6.125" Y="3.291" />
-        <Point X="6.75" Y="3.291" />
-      </Path>
-    </InheritanceLine>
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>HiddenNeuron.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="NeuralNetwork.OutputNeuron">
@@ -76,6 +61,14 @@
         </TypeIdentifier>
       </Delegate>
     </NestedTypes>
+    <InheritanceLine Type="NeuralNetwork.InputNeuron" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="8.75" Y="6.25" />
+        <Point X="9.094" Y="6.25" />
+        <Point X="9.094" Y="5.75" />
+        <Point X="10" Y="5.75" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAgAAAAAAAAAAAAAAAAAAAECAAAAAAAAAAAAAA=</HashCode>
       <FileName>DelegateInputNeuron.cs</FileName>
@@ -86,6 +79,21 @@
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>DelegateOutputNeuron.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NeuralNetwork.HiddenNeuron">
+    <Position X="6.75" Y="2.75" Width="2" />
+    <InheritanceLine Type="NeuralNetwork.DependentNeuron" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="5.75" Y="1" />
+        <Point X="6.125" Y="1" />
+        <Point X="6.125" Y="3.34" />
+        <Point X="6.75" Y="3.34" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AYAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>HiddenNeuron.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
