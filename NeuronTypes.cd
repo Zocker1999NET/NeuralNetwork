@@ -36,12 +36,12 @@
       <Path>
         <Point X="2.75" Y="1.188" />
         <Point X="3.083" Y="1.188" />
-        <Point X="3.083" Y="5.688" />
-        <Point X="6.75" Y="5.688" />
+        <Point X="3.083" Y="5.959" />
+        <Point X="6.75" Y="5.959" />
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAQAAA=</HashCode>
       <FileName>InputNeuron.cs</FileName>
     </TypeIdentifier>
   </Class>

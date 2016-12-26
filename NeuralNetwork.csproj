@@ -40,6 +40,7 @@
     <!-- A reference to the entire .NET Framework is automatically included -->
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Connection.cs" />
     <Compile Include="DelegateInputNeuron.cs" />
     <Compile Include="DelegateOutputNeuron.cs" />
     <Compile Include="DependentNeuron.cs" />
