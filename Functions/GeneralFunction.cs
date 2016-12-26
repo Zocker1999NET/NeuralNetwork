@@ -11,6 +11,12 @@ namespace NeuralNetwork.Functions {
 			return v1 > v2 ? v2 <= v && v <= v1 : v1 <= v && v <= v2;
 		}
 
+		public float this[float x] {
+			get {
+				return Function(x);
+			}
+		}
+
 		protected float param;
 
 		public abstract float Function(float x);
