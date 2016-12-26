@@ -49,10 +49,10 @@
     <Position X="6.75" Y="2.75" Width="2" />
     <InheritanceLine Type="NeuralNetwork.DependentNeuron" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="5.75" Y="1.188" />
-        <Point X="6.125" Y="1.188" />
-        <Point X="6.125" Y="3.188" />
-        <Point X="6.75" Y="3.188" />
+        <Point X="5.75" Y="1" />
+        <Point X="6.125" Y="1" />
+        <Point X="6.125" Y="3.291" />
+        <Point X="6.75" Y="3.291" />
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
