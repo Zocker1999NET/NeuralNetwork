@@ -4,7 +4,9 @@ using System.Linq;
 using System.Text;
 
 namespace NeuralNetwork {
-	public abstract class OutputNeuron : DependentNeuron {
+	public abstract class OutputNeuron : HiddenNeuron {
+
+		public OutputNeuron(NeuralNetwork network) : base(network) { }
 
 	}
 }
