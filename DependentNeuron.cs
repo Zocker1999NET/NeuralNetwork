@@ -52,11 +52,11 @@ namespace NeuralNetwork {
 		}
 
 		/// <summary>
-		/// Represents the activation function this specific neuron wants to use to calculate his output.
+		/// Represents the activation function as method this specific neuron wants to use to calculate his output.
 		/// </summary>
 		/// <param name="value">The value the function is to calculate the specific output value for.</param>
 		/// <returns></returns>
-		public abstract float ActivationFunction(float value);
+		protected abstract float ActivationFunctionMethod(float value);
 
 		/// <summary>
 		/// Recalculates the output value with the activation function and the sum of the inputs.
@@ -66,7 +66,7 @@ namespace NeuralNetwork {
 			bool change = false;
 			foreach(Connection con in inCon)
 				change = change || con.Change;
-			return (net.CalculationPaused && change) ? ActivationFunction(sumUpInputs()) : CurrentValue;
+			return (net.CalculationPaused && change) ? ActivationFunctionMethod(sumUpInputs()) : CurrentValue;
 		}
 
 	}
