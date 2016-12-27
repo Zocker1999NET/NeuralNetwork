@@ -5,7 +5,7 @@ using System.Text;
 using NeuralNetwork.Functions;
 
 namespace NeuralNetwork {
-	public abstract class OutputNeuron : HiddenNeuron {
+	public abstract class OutputNeuron : DependentNeuron {
 
 		public OutputNeuron(NeuralNetwork network, GeneralFunction activationFunction) : base(network, activationFunction) { }
 
