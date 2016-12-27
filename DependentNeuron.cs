@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using NeuralNetwork.Exceptions;
+using NeuralNetwork.Functions;
 
 namespace NeuralNetwork {
 	/// <summary>
@@ -17,11 +18,21 @@ namespace NeuralNetwork {
 		/// </summary>
 		protected List<Connection> inCon;
 
+		GeneralFunction actFunc;
+
 		/// <summary>
 		/// Generates a new dependent neuron which is part of the given network.
 		/// </summary>
 		/// <param name="network"></param>
-		public DependentNeuron(NeuralNetwork network) : base(network) { }
+		public DependentNeuron(NeuralNetwork network, GeneralFunction activationFunction) : base(network) {
+			actFunc = activationFunction;
+		}
+
+		public GeneralFunction ActivationFunction {
+			get {
+				return actFunc;
+			}
+		}
 
 		/// <summary>
 		/// Adds a new connection this neuron has to the given output neuron with the given weigth.
@@ -52,13 +63,6 @@ namespace NeuralNetwork {
 		}
 
 		/// <summary>
-		/// Represents the activation function as method this specific neuron wants to use to calculate his output.
-		/// </summary>
-		/// <param name="value">The value the function is to calculate the specific output value for.</param>
-		/// <returns></returns>
-		protected abstract float ActivationFunctionMethod(float value);
-
-		/// <summary>
 		/// Recalculates the output value with the activation function and the sum of the inputs.
 		/// </summary>
 		/// <returns>The new output value</returns>
@@ -66,7 +70,7 @@ namespace NeuralNetwork {
 			bool change = false;
 			foreach(Connection con in inCon)
 				change = change || con.Change;
-			return (net.CalculationPaused && change) ? ActivationFunctionMethod(sumUpInputs()) : CurrentValue;
+			return (net.CalculationPaused && change) ? actFunc[sumUpInputs()] : CurrentValue;
 		}
 
 	}
