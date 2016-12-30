@@ -20,11 +20,11 @@ namespace NeuralNetwork {
 			/// </summary>
 			DependentNeuron input;
 			/// <summary>
-			/// The weigth of the connection.
+			/// The weight of the connection.
 			/// </summary>
 			float weight = 0f;
 			/// <summary>
-			/// Flags if change was loged by the output neuron.
+			/// Flags if change was logged by the output neuron.
 			/// Will automatically set back to false when the input neuron asks for the new value.
 			/// </summary>
 			bool change = false;
@@ -42,7 +42,7 @@ namespace NeuralNetwork {
 			}
 
 			/// <summary>
-			/// Gets or sets the weigth of the connection.
+			/// Gets or sets the weight of the connection.
 			/// </summary>
 			public float Weigth {
 				get {
@@ -73,7 +73,7 @@ namespace NeuralNetwork {
 			}
 
 			/// <summary>
-			/// Gets if a change was loged by the output neuron.
+			/// Gets if a change was logged by the output neuron.
 			/// Will automatically set back to false when the input neuron asks for the new value.
 			/// </summary>
 			public bool Change {

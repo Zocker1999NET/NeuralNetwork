@@ -36,7 +36,7 @@ namespace NeuralNetwork {
 		}
 
 		/// <summary>
-		/// Gets or sets the delegate this neuron uses to get its output.
+		/// Gets or sets the method this neuron uses to get its output.
 		/// </summary>
 		public InputDelegate InputMethod {
 			get {

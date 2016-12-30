@@ -30,7 +30,11 @@ namespace NeuralNetwork {
 			return GetCurrentOutputBySource();
 		}
 
-		protected override void valueChanged(float val) { }
+		/// <summary>
+		/// Event handler for changed output value, not needed for input neurons.
+		/// </summary>
+		/// <param name="val">The new output value.</param>
+		protected sealed override void valueChanged(float val) { }
 
 	}
 }

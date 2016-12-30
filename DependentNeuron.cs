@@ -23,11 +23,15 @@ namespace NeuralNetwork {
 		/// <summary>
 		/// Generates a new dependent neuron which is part of the given network.
 		/// </summary>
-		/// <param name="network"></param>
+		/// <param name="network">The network the new neuron is to be part of.</param>
+		/// <param name="activationFunction">The activation function the neuron should use.</param>
 		public DependentNeuron(NeuralNetwork network, GeneralFunction activationFunction) : base(network) {
 			actFunc = activationFunction;
 		}
 
+		/// <summary>
+		/// Gets the activation function of this neuron. Can be changed.
+		/// </summary>
 		public GeneralFunction ActivationFunction {
 			get {
 				return actFunc;
@@ -35,10 +39,10 @@ namespace NeuralNetwork {
 		}
 
 		/// <summary>
-		/// Adds a new connection this neuron has to the given output neuron with the given weigth.
+		/// Adds a new connection this neuron has to the given output neuron with the given weight.
 		/// </summary>
 		/// <param name="source">The output neuron of the new connection.</param>
-		/// <param name="weigth">The weigth of the new connection.</param>
+		/// <param name="weigth">The weight of the new connection.</param>
 		public void AddInputConnection(GeneralNeuron source, float weigth) {
 			inCon.Add(new Connection(source, this, weigth));
 		}
