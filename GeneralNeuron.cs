@@ -54,25 +54,38 @@ namespace NeuralNetwork {
 		}
 
 		/// <summary>
-		/// 
+		/// Event handler for changing output values.
 		/// </summary>
-		/// <returns>The new output</returns>
-		public abstract float CalculateOutput();
+		/// <param name="val">The new output value.</param>
+		protected abstract void valueChanged(float val);
 
 		/// <summary>
-		/// Gets (or sets) the current value of the neuron.
-		/// Only inherited classes are allowed to change the current value.
+		/// Calculates a new output value based on may changed input values or any other source.
+		/// </summary>
+		/// <returns>The new output</returns>
+		protected abstract float CalculateOutput();
+
+		/// <summary>
+		/// Refreshes the output and if the value has changed, it fires specific events to the connections and to itself.
+		/// </summary>
+		public void RefreshOutput() {
+			float newVal = CalculateOutput();
+			rangeEx(newVal);
+			if(curVal != newVal) {
+				curVal = newVal;
+				valueChanged(newVal);
+				foreach(Connection con in outCon)
+					con.FlagChange();
+			}
+		}
+
+		/// <summary>
+		/// Gets the current value of the neuron.
 		/// </summary>
 		public float CurrentValue {
 			get {
-				CalculateOutput();
+				RefreshOutput();
 				return curVal;
-			}
-			protected set {
-				rangeEx(value);
-				curVal = value;
-				foreach(Connection con in outCon)
-					con.FlagChange();
 			}
 		}
 

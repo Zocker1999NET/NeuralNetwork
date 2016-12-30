@@ -26,10 +26,11 @@ namespace NeuralNetwork {
 		/// Refreshes the given input of the source and stores it as the current output value.
 		/// </summary>
 		/// <returns>The new output value.</returns>
-		public override float CalculateOutput() {
-			CurrentValue = GetCurrentOutputBySource();
-			return CurrentValue;
+		protected override float CalculateOutput() {
+			return GetCurrentOutputBySource();
 		}
+
+		protected override void valueChanged(float val) { }
 
 	}
 }

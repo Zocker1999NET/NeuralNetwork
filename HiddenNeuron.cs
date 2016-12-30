@@ -9,5 +9,7 @@ namespace NeuralNetwork {
 
 		public HiddenNeuron(NeuralNetwork network, GeneralFunction activationFunction) : base(network, activationFunction) { }
 
+		protected override sealed void valueChanged(float val) { }
+
 	}
 }

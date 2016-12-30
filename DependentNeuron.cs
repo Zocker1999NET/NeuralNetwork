@@ -66,7 +66,7 @@ namespace NeuralNetwork {
 		/// Recalculates the output value with the activation function and the sum of the inputs.
 		/// </summary>
 		/// <returns>The new output value</returns>
-		public override float CalculateOutput() {
+		protected override float CalculateOutput() {
 			bool change = false;
 			foreach(Connection con in inCon)
 				change = change || con.Change;

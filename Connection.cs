@@ -59,7 +59,7 @@ namespace NeuralNetwork {
 			/// </summary>
 			internal void FlagChange() {
 				change = true;
-				input.CalculateOutput();
+				input.RefreshOutput();
 			}
 
 			/// <summary>
