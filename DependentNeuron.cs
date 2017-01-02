@@ -63,6 +63,29 @@ namespace NeuralNetwork {
 		}
 
 		/// <summary>
+		/// Removes an input connection if the given connection is connected with this neuron.
+		/// </summary>
+		/// <param name="con"></param>
+		public void RemoveInputConnection(Connection con) {
+			if(con.InputNeuron != this)
+				return;
+			if(con.OutputNeuron == null)
+				inCon.Remove(con);
+			else
+				con.RemoveConnection();
+		}
+
+		/// <summary>
+		/// Removes an input connection if the given neuron is connected with this neuron.
+		/// </summary>
+		/// <param name="source">The neuron of whose connection should be removed.</param>
+		public void RemoveInputConnection(GeneralNeuron source) {
+			foreach(Connection c in inCon)
+				if(c.OutputNeuron == source)
+					RemoveInputConnection(c);
+		}
+
+		/// <summary>
 		/// Returns the sum of all inputs this neuron are given.
 		/// </summary>
 		/// <returns>The sum of all inputs</returns>
@@ -78,12 +101,25 @@ namespace NeuralNetwork {
 		/// </summary>
 		/// <returns>The new output value</returns>
 		protected sealed override float CalculateOutput() {
+			if(Disabled)
+				return 0f;
 			if(net.CalculationPaused)
 				return CurrentValue;
 			bool change = false;
 			foreach(Connection con in inCon)
 				change = change || con.Change;
 			return ( change ) ? actFunc[sumUpInputs()] : CurrentValue;
+		}
+
+		/// <summary>
+		/// Removes this neuron and all connections this neuron has.
+		/// </summary>
+		public sealed override void RemoveNeuron() {
+			base.RemoveNeuron();
+			if(net == null)
+				return;
+			foreach(Connection c in inCon)
+				c.RemoveConnection();
 		}
 
 	}

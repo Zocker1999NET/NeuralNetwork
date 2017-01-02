@@ -27,6 +27,8 @@ namespace NeuralNetwork {
 		/// </summary>
 		/// <returns>The new output value.</returns>
 		protected sealed override float CalculateOutput() {
+			if(Disabled)
+				return 0f;
 			return GetCurrentOutputBySource();
 		}
 
@@ -35,6 +37,13 @@ namespace NeuralNetwork {
 		/// </summary>
 		/// <param name="val">The new output value.</param>
 		protected sealed override void valueChanged(float val) { }
+		
+		/// <summary>
+		/// Removes this neuron and all connections this neuron had.
+		/// </summary>
+		public sealed override void RemoveNeuron() {
+			base.RemoveNeuron();
+		}
 
 	}
 }

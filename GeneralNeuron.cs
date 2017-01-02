@@ -64,6 +64,15 @@ namespace NeuralNetwork {
 		}
 
 		/// <summary>
+		/// Indicates if this neuron is disabled.
+		/// </summary>
+		public bool Disabled {
+			get {
+				return net == null;
+			}
+		}
+
+		/// <summary>
 		/// Event handler for changing output values.
 		/// </summary>
 		/// <param name="val">The new output value.</param>
@@ -79,6 +88,8 @@ namespace NeuralNetwork {
 		/// Refreshes the output and if the value has changed, it fires specific events to the connections and to itself.
 		/// </summary>
 		public void RefreshOutput() {
+			if(Disabled)
+				return;
 			float newVal = CalculateOutput();
 			rangeEx(newVal);
 			if(curVal != newVal) {
@@ -94,6 +105,8 @@ namespace NeuralNetwork {
 		/// </summary>
 		public float CurrentValue {
 			get {
+				if(Disabled)
+					return 0f;
 				RefreshOutput();
 				return curVal;
 			}
@@ -105,6 +118,17 @@ namespace NeuralNetwork {
 		/// <returns>All output connections as array.</returns>
 		public Connection[] GetOutputConnections() {
 			return outCon.ToArray();
+		}
+
+		/// <summary>
+		/// Removes this neuron and all connections this neuron has.
+		/// </summary>
+		public virtual void RemoveNeuron() {
+			if(Disabled)
+				return;
+			net.unregisterNeuron(this);
+			foreach(Connection c in outCon)
+				c.RemoveConnection();
 		}
 
 	}

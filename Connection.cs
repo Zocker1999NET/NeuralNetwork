@@ -42,6 +42,18 @@ namespace NeuralNetwork {
 				output.outCon.Add(this);
 			}
 
+			internal GeneralNeuron OutputNeuron {
+				get {
+					return output;
+				}
+			}
+
+			internal DependentNeuron InputNeuron {
+				get {
+					return input;
+				}
+			}
+
 			/// <summary>
 			/// Gets or sets the weight of the connection. Changes of the weight also causes an automatic refresh of the input neuron.
 			/// </summary>
@@ -82,6 +94,19 @@ namespace NeuralNetwork {
 				get {
 					return change;
 				}
+			}
+
+			/// <summary>
+			/// Removes this connection.
+			/// </summary>
+			public void RemoveConnection() {
+				if(output == null)
+					return;
+				output.outCon.Remove(this);
+				output = null;
+				input.RemoveInputConnection(this);
+				input = null;
+				
 			}
 
 		}
