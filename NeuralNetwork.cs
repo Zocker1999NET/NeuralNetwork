@@ -10,6 +10,8 @@ namespace NeuralNetwork {
 	/// </summary>
 	public abstract class NeuralNetwork {
 
+		private List<GeneralNeuron> neurons;
+
 		private bool calcPaused = false;
 
 		/// <summary>
@@ -22,6 +24,25 @@ namespace NeuralNetwork {
 			protected set {
 				calcPaused = value;
 			}
+		}
+
+		/// <summary>
+		/// Registers a new neuron in its network. Neurons use this method to register themselves.
+		/// </summary>
+		/// <param name="neuron"></param>
+		internal void registerNeuron(GeneralNeuron neuron) {
+			if(!neuron.Network.IsNeuronRegistered(neuron)) {
+				neuron.Network.registerNeuron(neuron);
+				neuron.Network.neurons.Add(neuron);
+			}
+		}
+
+		public bool IsNeuronRegistered(GeneralNeuron neuron) {
+			return neurons.IndexOf(neuron) != -1;
+		}
+
+		internal void unregisterNeuron(GeneralNeuron neuron) {
+			neurons.Remove(neuron);
 		}
 
 	}

@@ -51,6 +51,16 @@ namespace NeuralNetwork {
 		/// <param name="network">The network the new neuron is to be part of.</param>
 		public GeneralNeuron(NeuralNetwork network) {
 			net = network;
+			net.registerNeuron(this);
+		}
+
+		/// <summary>
+		/// Gets the network this neuron is part of.
+		/// </summary>
+		public NeuralNetwork Network {
+			get {
+				return net;
+			}
 		}
 
 		/// <summary>
