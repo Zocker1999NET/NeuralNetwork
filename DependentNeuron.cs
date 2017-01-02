@@ -78,10 +78,12 @@ namespace NeuralNetwork {
 		/// </summary>
 		/// <returns>The new output value</returns>
 		protected sealed override float CalculateOutput() {
+			if(net.CalculationPaused)
+				return CurrentValue;
 			bool change = false;
 			foreach(Connection con in inCon)
 				change = change || con.Change;
-			return (net.CalculationPaused && change) ? actFunc[sumUpInputs()] : CurrentValue;
+			return ( change ) ? actFunc[sumUpInputs()] : CurrentValue;
 		}
 
 	}
