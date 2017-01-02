@@ -34,17 +34,18 @@ namespace NeuralNetwork {
 			/// </summary>
 			/// <param name="outNeuron">The output neuron which sets the value of the connection.</param>
 			/// <param name="inNeuron">The input neuron which gets the value of the connection.</param>
-			/// <param name="weigth">The weight of the connection.</param>
-			public Connection(GeneralNeuron outNeuron, DependentNeuron inNeuron, float weigth) {
+			/// <param name="newWeight">The weight of the connection.</param>
+			public Connection(GeneralNeuron outNeuron, DependentNeuron inNeuron, float newWeight) {
 				output = outNeuron;
 				input = inNeuron;
+				weight = newWeight;
 				output.outCon.Add(this);
 			}
 
 			/// <summary>
 			/// Gets or sets the weight of the connection.
 			/// </summary>
-			public float Weigth {
+			public float Weight {
 				get {
 					return weight;
 				}

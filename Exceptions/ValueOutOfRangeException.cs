@@ -20,8 +20,8 @@ namespace NeuralNetwork.Exceptions {
 
 		private static string getBegin(KindOfFloatValue type) {
 			switch(type) {
-				case KindOfFloatValue.Weigth:
-					return "The given weigth";
+				case KindOfFloatValue.Weight:
+					return "The given weight";
 			}
 			return "The given float value";
 		}
