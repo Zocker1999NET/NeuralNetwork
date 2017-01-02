@@ -43,7 +43,7 @@ namespace NeuralNetwork {
 			}
 
 			/// <summary>
-			/// Gets or sets the weight of the connection.
+			/// Gets or sets the weight of the connection. Changes of the weight also causes an automatic refresh of the input neuron.
 			/// </summary>
 			public float Weight {
 				get {
@@ -51,6 +51,7 @@ namespace NeuralNetwork {
 				}
 				set {
 					weight = value;
+					FlagChange();
 				}
 			}
 
