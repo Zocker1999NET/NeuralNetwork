@@ -28,7 +28,12 @@ namespace NeuralNetwork {
 		}
 
 		private List<GeneralNeuron> neurons;
+		private Random r = new Random();
 		private bool calcPaused = false;
+
+		protected double nextRandom() {
+			return (double) r.NextDouble();
+		}
 
 		/// <summary>
 		/// Gets if the neural network is paused so the neurons inside will not recalculate their outputs on input changes.
