@@ -50,6 +50,7 @@
     <Compile Include="DependentNeuron.cs" />
     <Compile Include="Functions\GeneralFunction.cs" />
     <Compile Include="Functions\LinearFunction.cs" />
+    <Compile Include="Functions\LogisticFunction.cs" />
     <Compile Include="GeneralNeuron.cs" />
     <Compile Include="HiddenNeuron.cs" />
     <Compile Include="InputNeuron.cs" />
