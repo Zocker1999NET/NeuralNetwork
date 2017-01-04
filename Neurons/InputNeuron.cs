@@ -10,7 +10,7 @@ namespace NeuralNetwork.Neurons {
 	/// </summary>
 	public class InputNeuron : GeneralNeuron {
 
-		private double newValue = 0f;
+		protected double nextValue = 0f;
 
 		/// <summary>
 		/// Generates a new input neuron which is part of the given network.
@@ -23,7 +23,7 @@ namespace NeuralNetwork.Neurons {
 		/// </summary>
 		/// <returns>The output the source would set.</returns>
 		protected virtual double getCurrentOutputBySource() {
-			return newValue;
+			return nextValue;
 		}
 
 		/// <summary>
@@ -32,7 +32,7 @@ namespace NeuralNetwork.Neurons {
 		/// </summary>
 		/// <param name="value">The next value of this neuron.</param>
 		public void SetNextValue(double value) {
-			newValue = value;
+			nextValue = value;
 			RefreshOutput();
 		}
 

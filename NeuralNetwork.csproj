@@ -57,6 +57,7 @@
     <Compile Include="Exceptions\KindOfFloatValue.cs" />
     <Compile Include="LayeredNetwork.cs" />
     <Compile Include="NeuralNetwork.cs" />
+    <Compile Include="Neurons\RangedInputNeuron.cs" />
     <Compile Include="OneLayerNetwork.cs" />
     <Compile Include="Neurons\OutputNeuron.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
