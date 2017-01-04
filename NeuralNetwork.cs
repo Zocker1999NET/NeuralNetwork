@@ -28,11 +28,14 @@ namespace NeuralNetwork {
 		}
 
 		private List<GeneralNeuron> neurons;
-		private Random r = new Random();
+		private Random random = new Random();
 		private bool calcPaused = false;
 
-		protected double nextRandom() {
-			return (double) r.NextDouble();
+		protected double nextRandom(double mod = .5, bool neg = true) {
+			double r = 0;
+			while(r == 0)
+				r = random.NextDouble();
+			return mod * ( neg ? ( 2 * r ) - 1 : r );
 		}
 
 		/// <summary>
