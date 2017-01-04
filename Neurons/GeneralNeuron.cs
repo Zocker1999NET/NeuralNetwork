@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using NeuralNetwork.Exceptions;
 
-namespace NeuralNetwork {
+namespace NeuralNetwork.Neurons {
 	/// <summary>
 	/// Represents a neuron which needs to be able to return its current value.
 	/// All neurons inherit from this class.

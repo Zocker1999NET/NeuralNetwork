@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace NeuralNetwork {
+namespace NeuralNetwork.Neurons {
 	/// <summary>
 	/// An input neuron which is able to receive its output from a given delegate.
 	/// </summary>

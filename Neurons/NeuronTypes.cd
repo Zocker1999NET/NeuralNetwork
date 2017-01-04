@@ -1,25 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="NeuralNetwork.GeneralNeuron">
+  <Class Name="NeuralNetwork.Neurons.GeneralNeuron">
     <Position X="0.5" Y="0.5" Width="2.25" />
     <Compartments>
       <Compartment Name="Nested Types" Collapsed="false" />
     </Compartments>
     <NestedTypes>
-      <Class Name="NeuralNetwork.GeneralNeuron.Connection">
+      <Class Name="NeuralNetwork.Neurons.GeneralNeuron.Connection">
         <TypeIdentifier>
-          <NewMemberFileName>GeneralNeuron.cs</NewMemberFileName>
+          <NewMemberFileName>Neurons\GeneralNeuron.cs</NewMemberFileName>
         </TypeIdentifier>
       </Class>
     </NestedTypes>
     <TypeIdentifier>
       <HashCode>QAAAAAAAAAAAAAgAAAAiQAAAAAAwAAAAAAAABAAQAAA=</HashCode>
-      <FileName>Connection.cs</FileName>
+      <FileName>Neurons\Connection.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="NeuralNetwork.DependentNeuron">
+  <Class Name="NeuralNetwork.Neurons.DependentNeuron">
     <Position X="3.75" Y="0.5" Width="2" />
-    <InheritanceLine Type="NeuralNetwork.GeneralNeuron" FixedToPoint="true">
+    <InheritanceLine Type="NeuralNetwork.Neurons.GeneralNeuron" FixedToPoint="true">
       <Path>
         <Point X="2.75" Y="1.062" />
         <Point X="3.75" Y="1.062" />
@@ -27,12 +27,12 @@
     </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AYAAAQAAAAAAAQAQAAAAAEAAAAAAAAAAAAAAAAAQAAA=</HashCode>
-      <FileName>DependentNeuron.cs</FileName>
+      <FileName>Neurons\DependentNeuron.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="NeuralNetwork.InputNeuron">
+  <Class Name="NeuralNetwork.Neurons.InputNeuron">
     <Position X="6.75" Y="4.25" Width="2" />
-    <InheritanceLine Type="NeuralNetwork.GeneralNeuron" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+    <InheritanceLine Type="NeuralNetwork.Neurons.GeneralNeuron" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
       <Path>
         <Point X="2.75" Y="1.208" />
         <Point X="3.083" Y="1.208" />
@@ -42,12 +42,12 @@
     </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAQAAAAAAACAAAAAAAAAAQAAA=</HashCode>
-      <FileName>InputNeuron.cs</FileName>
+      <FileName>Neurons\InputNeuron.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="NeuralNetwork.OutputNeuron">
+  <Class Name="NeuralNetwork.Neurons.OutputNeuron">
     <Position X="6.75" Y="0.5" Width="2" />
-    <InheritanceLine Type="NeuralNetwork.DependentNeuron" FixedFromPoint="true">
+    <InheritanceLine Type="NeuralNetwork.Neurons.DependentNeuron" FixedFromPoint="true">
       <Path>
         <Point X="5.75" Y="1.062" />
         <Point X="6.75" Y="1.062" />
@@ -55,22 +55,22 @@
     </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>OutputNeuron.cs</FileName>
+      <FileName>Neurons\OutputNeuron.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="NeuralNetwork.DelegateInputNeuron">
+  <Class Name="NeuralNetwork.Neurons.DelegateInputNeuron">
     <Position X="10" Y="4.25" Width="2" />
     <Compartments>
       <Compartment Name="Nested Types" Collapsed="false" />
     </Compartments>
     <NestedTypes>
-      <Delegate Name="NeuralNetwork.DelegateInputNeuron.InputDelegate" Collapsed="true">
+      <Delegate Name="NeuralNetwork.Neurons.DelegateInputNeuron.InputDelegate" Collapsed="true">
         <TypeIdentifier>
-          <NewMemberFileName>DelegateInputNeuron.cs</NewMemberFileName>
+          <NewMemberFileName>Neurons\DelegateInputNeuron.cs</NewMemberFileName>
         </TypeIdentifier>
       </Delegate>
     </NestedTypes>
-    <InheritanceLine Type="NeuralNetwork.InputNeuron" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+    <InheritanceLine Type="NeuralNetwork.Neurons.InputNeuron" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
       <Path>
         <Point X="8.75" Y="4.75" />
         <Point X="9.094" Y="4.75" />
@@ -79,22 +79,22 @@
     </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAgAAAAAAAAAAAAAAAAAAAECAAAAAAAAAAAAAA=</HashCode>
-      <FileName>DelegateInputNeuron.cs</FileName>
+      <FileName>Neurons\DelegateInputNeuron.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="NeuralNetwork.DelegateOutputNeuron">
+  <Class Name="NeuralNetwork.Neurons.DelegateOutputNeuron">
     <Position X="10" Y="0.5" Width="2" />
     <Compartments>
       <Compartment Name="Nested Types" Collapsed="false" />
     </Compartments>
     <NestedTypes>
-      <Delegate Name="NeuralNetwork.DelegateOutputNeuron.OutputDelegate" Collapsed="true">
+      <Delegate Name="NeuralNetwork.Neurons.DelegateOutputNeuron.OutputDelegate" Collapsed="true">
         <TypeIdentifier>
-          <NewMemberFileName>DelegateOutputNeuron.cs</NewMemberFileName>
+          <NewMemberFileName>Neurons\DelegateOutputNeuron.cs</NewMemberFileName>
         </TypeIdentifier>
       </Delegate>
     </NestedTypes>
-    <InheritanceLine Type="NeuralNetwork.OutputNeuron" FixedToPoint="true">
+    <InheritanceLine Type="NeuralNetwork.Neurons.OutputNeuron" FixedToPoint="true">
       <Path>
         <Point X="8.75" Y="1.116" />
         <Point X="9.125" Y="1.116" />
@@ -104,12 +104,12 @@
     </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAQAAAAAAAAAAAAAAAAAQAAAAAACAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>DelegateOutputNeuron.cs</FileName>
+      <FileName>Neurons\DelegateOutputNeuron.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="NeuralNetwork.HiddenNeuron">
+  <Class Name="NeuralNetwork.Neurons.HiddenNeuron">
     <Position X="6.75" Y="2.25" Width="2" />
-    <InheritanceLine Type="NeuralNetwork.DependentNeuron" FixedFromPoint="true" FixedToPoint="true">
+    <InheritanceLine Type="NeuralNetwork.Neurons.DependentNeuron" FixedFromPoint="true" FixedToPoint="true">
       <Path>
         <Point X="5.75" Y="1.188" />
         <Point X="6.125" Y="1.188" />
@@ -119,7 +119,7 @@
     </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>HiddenNeuron.cs</FileName>
+      <FileName>Neurons\HiddenNeuron.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using NeuralNetwork.Functions;
 
-namespace NeuralNetwork {
+namespace NeuralNetwork.Neurons {
 	/// <summary>
 	/// An output neuron which is able to send its output to a given delegate when the output changes.
 	/// </summary>

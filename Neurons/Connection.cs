@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NeuralNetwork {
+namespace NeuralNetwork.Neurons {
 	public abstract partial class GeneralNeuron {
 		/// <summary>
 		/// Represents a connection between two neurons, which can communicate with the methods of this connection.

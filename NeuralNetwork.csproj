@@ -37,28 +37,28 @@
   </PropertyGroup>
   <ItemGroup>
     <None Include="NetworkTypes.cd" />
-    <None Include="NeuronTypes.cd" />
+    <None Include="Neurons\NeuronTypes.cd" />
     <None Include="project.json" />
     <None Include="README.de-DE.md" />
     <None Include="README.md" />
     <!-- A reference to the entire .NET Framework is automatically included -->
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Connection.cs" />
-    <Compile Include="DelegateInputNeuron.cs" />
-    <Compile Include="DelegateOutputNeuron.cs" />
-    <Compile Include="DependentNeuron.cs" />
+    <Compile Include="Neurons\Connection.cs" />
+    <Compile Include="Neurons\DelegateInputNeuron.cs" />
+    <Compile Include="Neurons\DelegateOutputNeuron.cs" />
+    <Compile Include="Neurons\DependentNeuron.cs" />
     <Compile Include="Functions\GeneralFunction.cs" />
     <Compile Include="Functions\LinearFunction.cs" />
     <Compile Include="Functions\LogisticFunction.cs" />
-    <Compile Include="GeneralNeuron.cs" />
-    <Compile Include="HiddenNeuron.cs" />
-    <Compile Include="InputNeuron.cs" />
+    <Compile Include="Neurons\GeneralNeuron.cs" />
+    <Compile Include="Neurons\HiddenNeuron.cs" />
+    <Compile Include="Neurons\InputNeuron.cs" />
     <Compile Include="Exceptions\KindOfFloatValue.cs" />
     <Compile Include="LayeredNetwork.cs" />
     <Compile Include="NeuralNetwork.cs" />
     <Compile Include="OneLayerNetwork.cs" />
-    <Compile Include="OutputNeuron.cs" />
+    <Compile Include="Neurons\OutputNeuron.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Exceptions\ValueOutOfRangeException.cs" />
   </ItemGroup>

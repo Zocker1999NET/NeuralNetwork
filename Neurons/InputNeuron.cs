@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NeuralNetwork {
+namespace NeuralNetwork.Neurons {
 	/// <summary>
 	/// Represents a basic input neuron.
 	/// </summary>

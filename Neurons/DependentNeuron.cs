@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using NeuralNetwork.Exceptions;
 using NeuralNetwork.Functions;
 
-namespace NeuralNetwork {
+namespace NeuralNetwork.Neurons {
 	/// <summary>
 	/// Represents a neuron which is to be also able to have input connections from other neurons.
 	/// By default, hidden and output neurons inherit from this class.

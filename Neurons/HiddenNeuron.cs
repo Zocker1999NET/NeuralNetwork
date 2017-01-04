@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using NeuralNetwork.Functions;
 
-namespace NeuralNetwork {
+namespace NeuralNetwork.Neurons {
 	/// <summary>
 	/// Represents an hidden neuron.
 	/// </summary>
