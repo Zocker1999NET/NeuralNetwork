@@ -19,9 +19,22 @@ namespace NeuralNetwork {
 		/// <returns></returns>
 		protected delegate T genListBoolDelegate<T>(bool config) where T : GeneralNeuron;
 
+		/// <summary>
+		/// The input layer of this network
+		/// </summary>
 		protected List<InputNeuron> inputLayer = new List<InputNeuron>();
+		/// <summary>
+		/// The output layer of this network
+		/// </summary>
 		protected List<OutputNeuron> outputLayer = new List<OutputNeuron>();
 
+		/// <summary>
+		/// Generates the input and output layers with the given configuration.
+		/// </summary>
+		/// <param name="inputCount">The count of the input neurons.</param>
+		/// <param name="outputCount">The count of the output neurons.</param>
+		/// <param name="inputConfig">The configuration of the input neurons.</param>
+		/// <param name="outputConfig">The configuration of the output neurons.</param>
 		protected LayeredNetwork(int inputCount, int outputCount, bool inputConfig, bool outputConfig) {
 			addCountToList(inputCount, generateInputNeuron, inputLayer, inputConfig);
 			addCountToList(outputCount, generateOutputNeuron, outputLayer, outputConfig);
@@ -64,6 +77,28 @@ namespace NeuralNetwork {
 		/// <param name="config">The configuration argument. Behavior depends on the overriding method.</param>
 		/// <returns>The new created neuron.</returns>
 		protected abstract OutputNeuron generateOutputNeuron(bool config);
+
+		/// <summary>
+		/// Uses the setNextValue methods of the input neurons to set their new values.
+		/// </summary>
+		/// <param name="inputValues">The next input values. The length must be the same or higher than the count of input neurons.</param>
+		public void SetNextInputValues(params double[] inputValues) {
+			if(inputValues.Length < inputLayer.Count)
+				throw new Exception("Too less input values for this network!");
+			for(int i = 0; i < inputLayer.Count; i++)
+				inputLayer[i].SetNextValue(inputValues[i]);
+		}
+
+		/// <summary>
+		/// Returns the current output values of the output layer.
+		/// </summary>
+		/// <returns>The current output values as array.</returns>
+		public double[] GetCurrentOutputs() {
+			var l = new List<double>();
+			foreach(OutputNeuron output in outputLayer)
+				l.Add(output.CurrentValue);
+			return l.ToArray();
+		}
 
 		/// <summary>
 		/// Returns the individual counts of all layers.
