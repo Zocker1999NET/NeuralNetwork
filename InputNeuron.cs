@@ -8,7 +8,9 @@ namespace NeuralNetwork {
 	/// <summary>
 	/// Represents a basic input neuron.
 	/// </summary>
-	public abstract class InputNeuron : GeneralNeuron {
+	public class InputNeuron : GeneralNeuron {
+
+		private double newValue = 0f;
 
 		/// <summary>
 		/// Generates a new input neuron which is part of the given network.
@@ -20,7 +22,19 @@ namespace NeuralNetwork {
 		/// Returns the current output the source would set without changing its own current output.
 		/// </summary>
 		/// <returns>The output the source would set.</returns>
-		public abstract float GetCurrentOutputBySource();
+		protected virtual double getCurrentOutputBySource() {
+			return newValue;
+		}
+
+		/// <summary>
+		/// Tries to set the given value to the next value of this neuron.
+		/// Some types of input neurons does not support this method.
+		/// </summary>
+		/// <param name="value">The next value of this neuron.</param>
+		public void SetNextValue(double value) {
+			newValue = value;
+			RefreshOutput();
+		}
 
 		/// <summary>
 		/// Refreshes the given input of the source and stores it as the current output value.
@@ -28,8 +42,8 @@ namespace NeuralNetwork {
 		/// <returns>The new output value.</returns>
 		protected sealed override double CalculateOutput() {
 			if(Disabled)
-			return GetCurrentOutputBySource();
 				return 0;
+			return getCurrentOutputBySource();
 		}
 
 		/// <summary>
