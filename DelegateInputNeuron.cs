@@ -13,7 +13,7 @@ namespace NeuralNetwork {
 		/// Represents a method which can work as a delegate for an input neuron.
 		/// </summary>
 		/// <returns>The value the source of the input neuron would set to the output of the input neuron.</returns>
-		public delegate float InputDelegate();
+		public delegate double InputDelegate();
 
 		/// <summary>
 		/// The method this neuron will use to get its output.
@@ -49,12 +49,12 @@ namespace NeuralNetwork {
 
 		/// <summary>
 		/// Uses the given delegate to get its new output without changing its own current output.
-		/// Returns 0f if a delegate is not given.
+		/// Returns 0 if a delegate is not given.
 		/// </summary>
 		/// <returns>The new value the delegate would set to the output.</returns>
-		public override float GetCurrentOutputBySource() {
+		protected override double getCurrentOutputBySource() {
 			if(inputMeth == null)
-				return 0f;
+				return 0;
 			return inputMeth();
 		}
 

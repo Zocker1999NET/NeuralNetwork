@@ -43,7 +43,7 @@ namespace NeuralNetwork {
 		/// </summary>
 		/// <param name="source">The output neuron of the new connection.</param>
 		/// <param name="weight">The weight of the new connection.</param>
-		public void AddInputConnection(GeneralNeuron source, float weight) {
+		public void AddInputConnection(GeneralNeuron source, double weight) {
 			Connection con = null;
 			foreach(Connection c in inCon)
 				if(c.OutputNeuron == source)
@@ -89,8 +89,8 @@ namespace NeuralNetwork {
 		/// Returns the sum of all inputs this neuron are given.
 		/// </summary>
 		/// <returns>The sum of all inputs</returns>
-		protected float sumUpInputs() {
-			float sum = 0f;
+		protected double sumUpInputs() {
+			double sum = 0f;
 			foreach(Connection con in inCon)
 				sum += con.WeightedInput;
 			return sum;
@@ -100,7 +100,7 @@ namespace NeuralNetwork {
 		/// Recalculates the output value with the activation function and the sum of the inputs.
 		/// </summary>
 		/// <returns>The new output value</returns>
-		protected sealed override float CalculateOutput() {
+		protected sealed override double CalculateOutput() {
 			if(Disabled)
 				return 0f;
 			if(net.CalculationPaused)

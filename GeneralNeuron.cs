@@ -12,21 +12,21 @@ namespace NeuralNetwork {
 	public abstract partial class GeneralNeuron {
 
 		/// <summary>
-		/// Checks if the given float value is out of range (range is defined by [-1;1]).
+		/// Checks if the given double value is out of range (range is defined by [-1;1]).
 		/// </summary>
-		/// <param name="value">The float value which is to be checked.</param>
-		/// <returns>True if the float value is out of range.</returns>
-		public static bool ValueOutOfRange(float value) {
+		/// <param name="value">The double value which is to be checked.</param>
+		/// <returns>True if the double value is out of range.</returns>
+		public static bool ValueOutOfRange(double value) {
 			return ( -1 > value || value > 1 );
 		}
 
 		/// <summary>
 		/// Throws a specific ValueOutOfRangeException if the given value is out of range.
-		/// See <see cref="ValueOutOfRange(float)"/>.
+		/// See <see cref="ValueOutOfRange(double)"/>.
 		/// </summary>
-		/// <param name="value">The float value which is to be checked.</param>
+		/// <param name="value">The double value which is to be checked.</param>
 		/// <param name="type">Defines which kind of value the given one is for the text of the exception.</param>
-		protected static void rangeEx(float value, KindOfFloatValue type = KindOfFloatValue.Unknown) {
+		protected static void rangeEx(double value, KindOfFloatValue type = KindOfFloatValue.Unknown) {
 			if(ValueOutOfRange(value))
 				throw new ValueOutOfRangeException(type, value);
 		}
@@ -38,7 +38,7 @@ namespace NeuralNetwork {
 		/// <summary>
 		/// Represents the current value the neuron returns as output.
 		/// </summary>
-		private float curVal;
+		private double curVal;
 
 		/// <summary>
 		/// The <seealso cref="NeuralNetwork"/> this neuron is part of.
@@ -76,13 +76,13 @@ namespace NeuralNetwork {
 		/// Event handler for changing output values.
 		/// </summary>
 		/// <param name="val">The new output value.</param>
-		protected abstract void valueChanged(float val);
+		protected abstract void valueChanged(double val);
 
 		/// <summary>
 		/// Calculates a new output value based on may changed input values or any other source.
 		/// </summary>
 		/// <returns>The new output</returns>
-		protected abstract float CalculateOutput();
+		protected abstract double CalculateOutput();
 
 		/// <summary>
 		/// Refreshes the output and if the value has changed, it fires specific events to the connections and to itself.
@@ -90,7 +90,7 @@ namespace NeuralNetwork {
 		public void RefreshOutput() {
 			if(Disabled)
 				return;
-			float newVal = CalculateOutput();
+			double newVal = CalculateOutput();
 			rangeEx(newVal);
 			if(curVal != newVal) {
 				curVal = newVal;
@@ -103,7 +103,7 @@ namespace NeuralNetwork {
 		/// <summary>
 		/// Gets the current value of the neuron.
 		/// </summary>
-		public float CurrentValue {
+		public double CurrentValue {
 			get {
 				if(Disabled)
 					return 0f;

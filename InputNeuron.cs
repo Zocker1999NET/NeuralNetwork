@@ -26,17 +26,18 @@ namespace NeuralNetwork {
 		/// Refreshes the given input of the source and stores it as the current output value.
 		/// </summary>
 		/// <returns>The new output value.</returns>
-		protected sealed override float CalculateOutput() {
+		protected sealed override double CalculateOutput() {
 			if(Disabled)
-				return 0f;
 			return GetCurrentOutputBySource();
+				return 0;
 		}
 
 		/// <summary>
 		/// Event handler for changed output value, not needed for input neurons.
 		/// </summary>
 		/// <param name="val">The new output value.</param>
-		protected sealed override void valueChanged(float val) { }
+		protected sealed override void valueChanged(double val) {
+		}
 		
 		/// <summary>
 		/// Removes this neuron and all connections this neuron had.

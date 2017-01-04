@@ -22,7 +22,7 @@ namespace NeuralNetwork {
 			/// <summary>
 			/// The weight of the connection.
 			/// </summary>
-			float weight = 0f;
+			double weight = 0f;
 			/// <summary>
 			/// Flags if change was logged by the output neuron.
 			/// Will automatically set back to false when the input neuron asks for the new value.
@@ -35,7 +35,7 @@ namespace NeuralNetwork {
 			/// <param name="outNeuron">The output neuron which sets the value of the connection.</param>
 			/// <param name="inNeuron">The input neuron which gets the value of the connection.</param>
 			/// <param name="newWeight">The weight of the connection.</param>
-			public Connection(GeneralNeuron outNeuron, DependentNeuron inNeuron, float newWeight) {
+			public Connection(GeneralNeuron outNeuron, DependentNeuron inNeuron, double newWeight) {
 				output = outNeuron;
 				input = inNeuron;
 				weight = newWeight;
@@ -57,7 +57,7 @@ namespace NeuralNetwork {
 			/// <summary>
 			/// Gets or sets the weight of the connection. Changes of the weight also causes an automatic refresh of the input neuron.
 			/// </summary>
-			public float Weight {
+			public double Weight {
 				get {
 					return weight;
 				}
@@ -79,7 +79,7 @@ namespace NeuralNetwork {
 			/// <summary>
 			/// Gets the current value of the connection, weight already observed.
 			/// </summary>
-			public float WeightedInput {
+			public double WeightedInput {
 				get {
 					change = false;
 					return output.CurrentValue * weight;

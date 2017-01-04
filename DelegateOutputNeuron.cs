@@ -14,7 +14,7 @@ namespace NeuralNetwork {
 		/// Represents a method which can work as a delegate for an output neuron.
 		/// </summary>
 		/// <param name="value">The value the output neuron has after a change.</param>
-		public delegate void OutputDelegate(float value);
+		public delegate void OutputDelegate(double value);
 
 		/// <summary>
 		/// The method this neuron will use when its output changes.
@@ -54,7 +54,7 @@ namespace NeuralNetwork {
 		/// Will execute the given output method when the own output value changes.
 		/// </summary>
 		/// <param name="val">The new output value of the neuron.</param>
-		protected sealed override void valueChanged(float val) {
+		protected sealed override void valueChanged(double val) {
 			outputMeth(val);
 		}
 

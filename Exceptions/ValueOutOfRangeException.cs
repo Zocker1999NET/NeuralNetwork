@@ -10,7 +10,7 @@ namespace NeuralNetwork.Exceptions {
 		private const string end = " is not in the defined range [-1;1] for these kind of neural networks.";
 
 		private bool valueGiven = false;
-		private float givenValue;
+		private double givenValue;
 
 		private KindOfFloatValue kindOfValue = KindOfFloatValue.Unknown;
 
@@ -23,7 +23,7 @@ namespace NeuralNetwork.Exceptions {
 				case KindOfFloatValue.Weight:
 					return "The given weight";
 			}
-			return "The given float value";
+			return "The given double value";
 		}
 
 		public ValueOutOfRangeException() : base(getBegin() + end) { }
@@ -32,12 +32,12 @@ namespace NeuralNetwork.Exceptions {
 			kindOfValue = type;
 		}
 
-		public ValueOutOfRangeException(float value) : base(getBegin() + " \"" + value.ToString() + "\"" + end) {
+		public ValueOutOfRangeException(double value) : base(getBegin() + " \"" + value.ToString() + "\"" + end) {
 			valueGiven = true;
 			givenValue = value;
 		}
 
-		public ValueOutOfRangeException(KindOfFloatValue type, float value) : base(getBegin(type) + " \"" + value.ToString() + "\"" + end) {
+		public ValueOutOfRangeException(KindOfFloatValue type, double value) : base(getBegin(type) + " \"" + value.ToString() + "\"" + end) {
 			kindOfValue = type;
 			valueGiven = true;
 			givenValue = value;
@@ -49,7 +49,7 @@ namespace NeuralNetwork.Exceptions {
 			}
 		}
 
-		public float GivenValue {
+		public double GivenValue {
 			get {
 				if(valueGiven)
 					return givenValue;
