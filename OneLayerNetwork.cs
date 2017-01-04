@@ -10,11 +10,9 @@ namespace NeuralNetwork {
 	/// <summary>
 	/// Represents a layered neural network with one hidden layer.
 	/// </summary>
-	public abstract class OneLayerNetwork : LayeredNetwork {
+	public class OneLayerNetwork : LayeredNetwork {
 
-		private List<InputNeuron> inputLayer = new List<InputNeuron>();
 		private List<HiddenNeuron> hiddenLayer = new List<HiddenNeuron>();
-		private List<OutputNeuron> outputLayer = new List<OutputNeuron>();
 
 		/// <summary>
 		/// Initializes a new neural network with one layer.
@@ -23,20 +21,18 @@ namespace NeuralNetwork {
 		/// <param name="hiddenCount">The count of the hidden neurons</param>
 		/// <param name="outputCount">The count of the output neurons</param>
 		/// <param name="boolOutput">If true, the output neurons will only return 0 or 1. See <see cref="generateOutputNeuron(bool)"/></param>
-		public OneLayerNetwork(int inputCount, int hiddenCount, int outputCount, bool boolOutput) {
-			addCountToList(inputCount, generateInputNeuron, inputLayer);
+		public OneLayerNetwork(int inputCount, int hiddenCount, int outputCount, bool boolOutput) : base(inputCount, outputCount, false, boolOutput) {
 			addCountToList(hiddenCount, generateHiddenNeuron, hiddenLayer);
-			addCountToList(outputCount, generateOutputNeuron, outputLayer, boolOutput);
 			addConnections(hiddenLayer.ToArray(), inputLayer.ToArray());
 			addConnections(outputLayer.ToArray(), hiddenLayer.ToArray());
 		}
-		
+
 		/// <summary>
 		/// Generates a new input neuron this kind of network should use.
 		/// </summary>
 		/// <param name="config">Optional configuration parameter, changes nothing in this case.</param>
 		/// <returns>The new created neuron.</returns>
-		protected virtual InputNeuron generateInputNeuron(bool config) {
+		protected override InputNeuron generateInputNeuron(bool config) {
 			return new InputNeuron(this);
 		}
 
@@ -54,7 +50,7 @@ namespace NeuralNetwork {
 		/// </summary>
 		/// <param name="config">Optional configuration parameter, see boolOutput of <see cref="OneLayerNetwork(int, int, int, bool)"/> for this case.</param>
 		/// <returns>The new created neuron.</returns>
-		protected virtual OutputNeuron generateOutputNeuron(bool config) {
+		protected override OutputNeuron generateOutputNeuron(bool config) {
 			return config ? new OutputNeuron(this, null) : new OutputNeuron(this, new LogisticFunction(nextRandom(2)));
 		}
 
