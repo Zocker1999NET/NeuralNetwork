@@ -10,19 +10,19 @@ namespace NeuralNetwork {
 	/// <summary>
 	/// Represents a layered neural network with one hidden layer.
 	/// </summary>
-	public class OneLayerNetwork : LayeredNetwork {
+	public abstract class OneLayerNetwork : LayeredNetwork {
 
-		private List<InputNeuron> inputLayer;
-		private List<HiddenNeuron> hiddenLayer;
-		private List<OutputNeuron> outputLayer;
+		private List<InputNeuron> inputLayer = new List<InputNeuron>();
+		private List<HiddenNeuron> hiddenLayer = new List<HiddenNeuron>();
+		private List<OutputNeuron> outputLayer = new List<OutputNeuron>();
 
 		/// <summary>
-		/// Generates a neural network with one layer.
+		/// Initializes a new neural network with one layer.
 		/// </summary>
-		/// <param name="inputCount"></param>
-		/// <param name="hiddenCount"></param>
-		/// <param name="outputCount"></param>
-		/// <param name="boolOutput">If true, the output neurons will only return 0 or 1.</param>
+		/// <param name="inputCount">The count of the input neurons</param>
+		/// <param name="hiddenCount">The count of the hidden neurons</param>
+		/// <param name="outputCount">The count of the output neurons</param>
+		/// <param name="boolOutput">If true, the output neurons will only return 0 or 1. See <see cref="generateOutputNeuron(bool)"/></param>
 		public OneLayerNetwork(int inputCount, int hiddenCount, int outputCount, bool boolOutput) {
 			addCountToList(inputCount, generateInputNeuron, inputLayer);
 			addCountToList(hiddenCount, generateHiddenNeuron, hiddenLayer);
@@ -30,15 +30,30 @@ namespace NeuralNetwork {
 			addConnections(hiddenLayer.ToArray(), inputLayer.ToArray());
 			addConnections(outputLayer.ToArray(), hiddenLayer.ToArray());
 		}
-
-		protected virtual InputNeuron generateInputNeuron() {
+		
+		/// <summary>
+		/// Generates a new input neuron this kind of network should use.
+		/// </summary>
+		/// <param name="config">Optional configuration parameter, changes nothing in this case.</param>
+		/// <returns>The new created neuron.</returns>
+		protected virtual InputNeuron generateInputNeuron(bool config) {
 			return new InputNeuron(this);
 		}
 
-		protected virtual HiddenNeuron generateHiddenNeuron() {
+		/// <summary>
+		/// Generates a new hidden neuron this kind of network should use.
+		/// </summary>
+		/// <param name="config">Optional configuration parameter, changes nothing in this case.</param>
+		/// <returns>The new created neuron.</returns>
+		protected virtual HiddenNeuron generateHiddenNeuron(bool config) {
 			return new HiddenNeuron(this, new LogisticFunction(nextRandom(2)));
 		}
 
+		/// <summary>
+		/// Generates a new output neuron this kind of network should use.
+		/// </summary>
+		/// <param name="config">Optional configuration parameter, see boolOutput of <see cref="OneLayerNetwork(int, int, int, bool)"/> for this case.</param>
+		/// <returns>The new created neuron.</returns>
 		protected virtual OutputNeuron generateOutputNeuron(bool config) {
 			return config ? new OutputNeuron(this, null) : new OutputNeuron(this, new LogisticFunction(nextRandom(2)));
 		}
