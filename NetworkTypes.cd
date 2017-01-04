@@ -1,10 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="NeuralNetwork.NeuralNetwork">
-    <Position X="1" Y="3.5" Width="1.5" />
+    <Position X="0.5" Y="0.5" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AAAgAAAAAAAAAAAAAAAAAAAAAgAAAIAAAAAIAAAAAAA=</HashCode>
+      <HashCode>AAIgAAAAAAAIAAAAAAAAAAAAAgAAAIAAAAQIAAAEAAA=</HashCode>
       <FileName>NeuralNetwork.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NeuralNetwork.LayeredNetwork">
+    <Position X="2.5" Y="0.5" Width="1.75" />
+    <NestedTypes>
+      <Delegate Name="NeuralNetwork.LayeredNetwork.genListBoolDelegate&lt;T&gt;" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>LayeredNetwork.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAEAAABAAIACAAAAAAAAAAAAAACACAADAAAAAAABAAA=</HashCode>
+      <FileName>LayeredNetwork.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NeuralNetwork.OneLayerNetwork">
+    <Position X="4.5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAQABAAAAAAAAAAAAAAAAgAACACAAAAAAAAAAAAAA=</HashCode>
+      <FileName>OneLayerNetwork.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
