@@ -58,5 +58,13 @@ namespace NeuralNetwork {
 			return config ? new OutputNeuron(this, null) : new OutputNeuron(this, new LogisticFunction(nextRandom(2)));
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <returns></returns>
+		public override sealed int[] GetNeuronsCounts() {
+			return new int[] { inputLayer.Count(), hiddenLayer.Count(), outputLayer.Count() };
+		}
+
 	}
 }

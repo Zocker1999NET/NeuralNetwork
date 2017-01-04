@@ -43,5 +43,27 @@ namespace NeuralNetwork {
 					o.AddInputConnection(i, nextRandom());
 		}
 
+		/// <summary>
+		/// Returns the individual counts of all layers.
+		/// </summary>
+		/// <returns>The count of neurons for each layer.</returns>
+		public abstract int[] GetNeuronsCounts();
+
+		/// <summary>
+		/// Returns the count of layers this network has.
+		/// </summary>
+		/// <returns>The count of layers.</returns>
+		public int GetLayerCounts() {
+			return GetNeuronsCounts().Count();
+		}
+
+		/// <summary>
+		/// Returns the count of all neurons this network has.
+		/// </summary>
+		/// <returns>The count of all neurons.</returns>
+		public int GetNeuronCount() {
+			return GetNeuronsCounts().Sum();
+		}
+
 	}
 }
