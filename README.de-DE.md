@@ -1,4 +1,4 @@
-# **NeuronNetwork** von Zocker1999NET
+# **NeuralNetwork** von Zocker1999NET
 
 Dieses Projekt soll zu einer leicht verwendbaren Bibliothek für angehende Programmer im Bereich Neuronale Netze, wie ich es gerade bin, werden.
 
