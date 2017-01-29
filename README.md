@@ -1,6 +1,6 @@
-﻿# **NeuralNetwork** by Zocker1999NET
+# **NeuralNetwork** by Zocker1999NET
 
-This project is to become a easy-to-use library for programmers who want to start working with neural networks like me now.
+This project is to become an easy-to-use library for programmers who want to start working with neural networks like me now.
 
 You can also read this file in other languages:
 
