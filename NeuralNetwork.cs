@@ -28,15 +28,24 @@ namespace NeuralNetwork {
 			neuron.Network.neurons.Remove(neuron);
 		}
 
+		/// <summary>
+		/// Stores all neurons the current network is working with.
+		/// </summary>
 		private List<GeneralNeuron> neurons;
 		private Random random = new Random();
 		private bool calcPaused = false;
 
-		protected double nextRandom(double mod = .5, bool neg = true) {
+		/// <summary>
+		/// Generates a new random double which is greater or equal than 0 and smaller than the given maximum. Used to generate the weights at the beginning.
+		/// </summary>
+		/// <param name="max">The maximum of the random double.</param>
+		/// <param name="neg">If true, the random double is greater than the negative of the given maximum and smaller then the given maximum.</param>
+		/// <returns></returns>
+		protected double nextRandom(double max = .5, bool neg = true) {
 			double r = 0;
 			while(r == 0)
 				r = random.NextDouble();
-			return mod * ( neg ? ( 2 * r ) - 1 : r );
+			return max * ( neg ? ( 2 * r ) - 1 : r );
 		}
 
 		/// <summary>
