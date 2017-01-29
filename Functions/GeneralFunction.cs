@@ -22,32 +22,32 @@ namespace NeuralNetwork.Functions {
 		public abstract double Function(double x);
 
 		public virtual double Inverse(double y) {
-			double x = -10f;
-			double step = 1f;
+			double x = -10;
+			double step = 1;
 			double oldVal = Function(x);
 			double newVal = Function(x);
-			while(step >= 0.001f) {
+			while(step >= 0.001) {
 				while(!betw(y, oldVal, newVal)) {
 					x += step;
 					oldVal = newVal;
 					newVal = Function(x);
 					if(x > 10)
-						return 0f;
+						return 0;
 				}
 				x -= step;
-				step /= 10f;
+				step /= 10;
 			}
-			return x + ( step / 2f );
+			return x + ( step / 2 );
 		}
 
 		public virtual bool SetParameterFor(double x, double y) {
 			double oldP = param;
-			param = -10f;
-			double step = 1f;
+			param = -10;
+			double step = 1;
 			double oldVal = Function(x);
 			double newVal = Function(x);
-			while(step >= 0.001f) {
-				step /= 10f;
+			while(step >= 0.001) {
+				step /= 10;
 				while(!betw(y, oldVal, newVal)) {
 					param += step;
 					oldVal = newVal;
@@ -58,9 +58,9 @@ namespace NeuralNetwork.Functions {
 					}
 				}
 				param -= step;
-				step /= 10f;
+				step /= 10;
 			}
-			param = param + ( step / 2f );
+			param = param + ( step / 2 );
 			return true;
 		}
 
