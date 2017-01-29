@@ -21,6 +21,8 @@ namespace NeuralNetwork.Functions {
 
 		public abstract double Function(double x);
 
+		public abstract double Differential(double x);
+
 		public virtual double Inverse(double y) {
 			double x = -10;
 			double step = 1;

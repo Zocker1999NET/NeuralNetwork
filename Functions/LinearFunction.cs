@@ -15,6 +15,10 @@ namespace NeuralNetwork.Functions {
 			return x * param;
 		}
 
+		public override double Differential(double x) {
+			return param;
+		}
+
 		public override double Inverse(double y) {
 			return y / param;
 		}

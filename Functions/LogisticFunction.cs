@@ -15,6 +15,10 @@ namespace NeuralNetwork.Functions {
 			return ( 2 / ( 1 + ( Math.Pow(Math.E, ( -param ) * x) ) ) ) - 1;
 		}
 
+		public override double Differential(double x) {
+			return this[x] * ( 1 - this[x] );
+		}
+
 		public override double Inverse(double y) {
 			return -( Math.Log(( 2 / ( y + 1 ) ) - 1) / param );
 		}
