@@ -15,7 +15,7 @@ namespace NeuralNetwork {
 		/// Registers a new neuron in its network. Neurons use this method to register themselves.
 		/// </summary>
 		/// <param name="neuron">The neuron which is to be registered.</param>
-		internal static void registerNeuron(GeneralNeuron neuron) {
+		internal static void RegisterNeuron(GeneralNeuron neuron) {
 			if(!neuron.Network.IsNeuronRegistered(neuron))
 				neuron.Network.neurons.Add(neuron);
 		}
@@ -24,7 +24,7 @@ namespace NeuralNetwork {
 		/// Unregisters the given neuron from its network.
 		/// </summary>
 		/// <param name="neuron">The neuron which is to be unregistered.</param>
-		internal static void unregisterNeuron(GeneralNeuron neuron) {
+		internal static void UnregisterNeuron(GeneralNeuron neuron) {
 			neuron.Network.neurons.Remove(neuron);
 		}
 
@@ -41,7 +41,7 @@ namespace NeuralNetwork {
 		/// <param name="max">The maximum of the random double.</param>
 		/// <param name="neg">If true, the random double is greater than the negative of the given maximum and smaller then the given maximum.</param>
 		/// <returns></returns>
-		protected double nextRandom(double max = .5, bool neg = true) {
+		protected double NextRandom(double max = .5, bool neg = true) {
 			double r = 0;
 			while(r == 0)
 				r = random.NextDouble();

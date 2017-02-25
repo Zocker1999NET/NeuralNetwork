@@ -42,7 +42,7 @@ namespace NeuralNetwork {
 		/// <param name="config">Optional configuration parameter, changes nothing in this case.</param>
 		/// <returns>The new created neuron.</returns>
 		protected virtual HiddenNeuron generateHiddenNeuron(bool config) {
-			return new HiddenNeuron(this, new LogisticFunction(nextRandom(2)));
+			return new HiddenNeuron(this, new LogisticFunction(NextRandom(2)));
 		}
 
 		/// <summary>
@@ -51,7 +51,7 @@ namespace NeuralNetwork {
 		/// <param name="config">Optional configuration parameter, see boolOutput of <see cref="OneLayerNetwork(int, int, int, bool)"/> for this case.</param>
 		/// <returns>The new created neuron.</returns>
 		protected override OutputNeuron generateOutputNeuron(bool config) {
-			return config ? new OutputNeuron(this, null) : new OutputNeuron(this, new LogisticFunction(nextRandom(2)));
+			return config ? new OutputNeuron(this, null) : new OutputNeuron(this, new LogisticFunction(NextRandom(2)));
 		}
 
 		/// <summary>

@@ -51,7 +51,7 @@ namespace NeuralNetwork.Neurons {
 		/// <param name="network">The network the new neuron is to be part of.</param>
 		public GeneralNeuron(NeuralNetwork network) {
 			net = network;
-			NeuralNetwork.registerNeuron(this);
+			NeuralNetwork.RegisterNeuron(this);
 		}
 
 		/// <summary>
@@ -126,7 +126,7 @@ namespace NeuralNetwork.Neurons {
 		public virtual void RemoveNeuron() {
 			if(Disabled)
 				return;
-			NeuralNetwork.unregisterNeuron(this);
+			NeuralNetwork.UnregisterNeuron(this);
 			foreach(Connection c in outCon)
 				c.RemoveConnection();
 		}
