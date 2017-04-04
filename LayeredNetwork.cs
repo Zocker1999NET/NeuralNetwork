@@ -36,8 +36,8 @@ namespace NeuralNetwork {
 		/// <param name="inputConfig">The configuration of the input neurons.</param>
 		/// <param name="outputConfig">The configuration of the output neurons.</param>
 		protected LayeredNetwork(int inputCount, int outputCount, bool inputConfig, bool outputConfig) {
-			addCountToList(inputCount, generateInputNeuron, inputLayer, inputConfig);
-			addCountToList(outputCount, generateOutputNeuron, outputLayer, outputConfig);
+			AddCountToList(inputCount, GenerateInputNeuron, inputLayer, inputConfig);
+			AddCountToList(outputCount, GenerateOutputNeuron, outputLayer, outputConfig);
 		}
 
 		/// <summary>
@@ -48,7 +48,7 @@ namespace NeuralNetwork {
 		/// <param name="method">The method which is to create the neurons to add to the list.</param>
 		/// <param name="l">The list the created neurons will be added to.</param>
 		/// <param name="config">The configuration argument. Behavior depends on the given method.</param>
-		protected void addCountToList<T>(int count, genListBoolDelegate<T> method, List<T> l, bool config = false) where T : GeneralNeuron {
+		protected void AddCountToList<T>(int count, genListBoolDelegate<T> method, List<T> l, bool config = false) where T : GeneralNeuron {
 			for(int c = 0; c < count; c++)
 				l.Add(method(config));
 		}
@@ -58,7 +58,7 @@ namespace NeuralNetwork {
 		/// </summary>
 		/// <param name="output">The output neurons of the new connections.</param>
 		/// <param name="input">The input neurons of the new connections.</param>
-		protected void addConnections(DependentNeuron[] output, GeneralNeuron[] input) {
+		protected void AddConnections(DependentNeuron[] output, GeneralNeuron[] input) {
 			foreach(var o in output)
 				foreach(var i in input)
 					o.AddInputConnection(i, NextRandom());
@@ -69,14 +69,14 @@ namespace NeuralNetwork {
 		/// </summary>
 		/// <param name="config">The configuration argument. Behavior depends on the overriding method.</param>
 		/// <returns>The new created neuron.</returns>
-		protected abstract InputNeuron generateInputNeuron(bool config);
+		protected abstract InputNeuron GenerateInputNeuron(bool config);
 
 		/// <summary>
 		/// Generates a new output neuron this kind of network should use.
 		/// </summary>
 		/// <param name="config">The configuration argument. Behavior depends on the overriding method.</param>
 		/// <returns>The new created neuron.</returns>
-		protected abstract OutputNeuron generateOutputNeuron(bool config);
+		protected abstract OutputNeuron GenerateOutputNeuron(bool config);
 
 		/// <summary>
 		/// Uses the setNextValue methods of the input neurons to set their new values.

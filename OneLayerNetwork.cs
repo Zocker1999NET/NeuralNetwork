@@ -20,11 +20,11 @@ namespace NeuralNetwork {
 		/// <param name="inputCount">The count of the input neurons</param>
 		/// <param name="hiddenCount">The count of the hidden neurons</param>
 		/// <param name="outputCount">The count of the output neurons</param>
-		/// <param name="boolOutput">If true, the output neurons will only return 0 or 1. See <see cref="generateOutputNeuron(bool)"/></param>
+		/// <param name="boolOutput">If true, the output neurons will only return 0 or 1. See <see cref="GenerateOutputNeuron(bool)"/></param>
 		public OneLayerNetwork(int inputCount, int hiddenCount, int outputCount, bool boolOutput) : base(inputCount, outputCount, false, boolOutput) {
-			addCountToList(hiddenCount, generateHiddenNeuron, hiddenLayer);
-			addConnections(hiddenLayer.ToArray(), inputLayer.ToArray());
-			addConnections(outputLayer.ToArray(), hiddenLayer.ToArray());
+			AddCountToList(hiddenCount, generateHiddenNeuron, hiddenLayer);
+			AddConnections(hiddenLayer.ToArray(), inputLayer.ToArray());
+			AddConnections(outputLayer.ToArray(), hiddenLayer.ToArray());
 		}
 
 		/// <summary>
@@ -32,7 +32,7 @@ namespace NeuralNetwork {
 		/// </summary>
 		/// <param name="config">Optional configuration parameter, changes nothing in this case.</param>
 		/// <returns>The new created neuron.</returns>
-		protected override InputNeuron generateInputNeuron(bool config) {
+		protected override InputNeuron GenerateInputNeuron(bool config) {
 			return new InputNeuron(this);
 		}
 
@@ -50,7 +50,7 @@ namespace NeuralNetwork {
 		/// </summary>
 		/// <param name="config">Optional configuration parameter, see boolOutput of <see cref="OneLayerNetwork(int, int, int, bool)"/> for this case.</param>
 		/// <returns>The new created neuron.</returns>
-		protected override OutputNeuron generateOutputNeuron(bool config) {
+		protected override OutputNeuron GenerateOutputNeuron(bool config) {
 			return config ? new OutputNeuron(this, null) : new OutputNeuron(this, new LogisticFunction(NextRandom(2)));
 		}
 
