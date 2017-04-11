@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,7 +30,12 @@ namespace NeuralNetwork {
 
 		private List<GeneralNeuron> neurons;
 		private Random random = new Random();
-		private bool calcPaused = false;
+		private bool autoCalcPaused = false;
+		/// <summary>
+		/// Flags if the network is currently recalculating.
+		/// Neurons will recalculate even if calculation is paused.
+		/// </summary>
+		protected bool recalculating = false;
 
 		/// <summary>
 		/// Generates a new random double which is greater or equal than 0 and smaller than the given maximum. Used to generate the weights at the beginning.
@@ -49,12 +54,26 @@ namespace NeuralNetwork {
 		/// Gets if the neural network is paused so the neurons inside will not recalculate their outputs on input changes.
 		/// </summary>
 		public bool CalculationPaused {
-			get {
-				return calcPaused;
-			}
+			get => autoCalcPaused && !recalculating;
 			protected set {
-				calcPaused = value;
+				autoCalcPaused = value;
+				if(!autoCalcPaused)
+					Recalculate();
 			}
+		}
+
+		/// <summary>
+		/// Continues all automatic calculations and recalculates everything based on older changes.
+		/// </summary>
+		public void ContinueCalculation() {
+			CalculationPaused = false;
+		}
+
+		/// <summary>
+		/// Pauses all automatic calculations in this network.
+		/// </summary>
+		public void PauseCalculation() {
+			CalculationPaused = true;
 		}
 
 		/// <summary>
@@ -65,6 +84,17 @@ namespace NeuralNetwork {
 		public bool IsNeuronRegistered(GeneralNeuron neuron) {
 			return neurons.IndexOf(neuron) != -1;
 		}
+
+		/// <summary>
+		/// Gets the current count of neurons registered in this network.
+		/// </summary>
+		public virtual int NeuronCount => neurons.Count;
+
+		/// <summary>
+		/// Initiates a recalculation of the whole network.
+		/// Recalculates even if calculation is paused.
+		/// </summary>
+		public abstract void Recalculate();
 
 	}
 }

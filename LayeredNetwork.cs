@@ -115,11 +115,17 @@ namespace NeuralNetwork {
 		}
 
 		/// <summary>
-		/// Returns the count of all neurons this network has.
+		/// Gets the counts of neurons in this network.
 		/// </summary>
-		/// <returns>The count of all neurons.</returns>
-		public int GetNeuronCount() {
-			return GetNeuronsCounts().Sum();
+		public override int NeuronCount => GetNeuronsCounts().Sum();
+
+		/// <summary>
+		/// Initiates a recalculation of the whole network.
+		/// Recalculates even if calculation is paused.
+		/// </summary>
+		public override void Recalculate() {
+			foreach(GeneralNeuron neuron in inputLayer)
+				neuron.RefreshOutput();
 		}
 
 	}
