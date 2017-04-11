@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -85,7 +85,8 @@ namespace NeuralNetwork.Neurons {
 		protected abstract double CalculateOutput();
 
 		/// <summary>
-		/// Refreshes the output and if the value has changed, it fires specific events to the connections and to itself.
+		/// Refreshes the output.
+		/// If the value has changed, it fires specific events to the connections and to itself.
 		/// </summary>
 		public void RefreshOutput() {
 			if(Disabled)

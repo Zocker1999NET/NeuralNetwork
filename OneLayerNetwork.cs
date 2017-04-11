@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -55,9 +55,9 @@ namespace NeuralNetwork {
 		}
 
 		/// <summary>
-		/// 
+		/// Returns the individual counts of all layers.
 		/// </summary>
-		/// <returns></returns>
+		/// <returns>The count of neurons for each layer.</returns>
 		public override sealed int[] GetNeuronsCounts() {
 			return new int[] { inputLayer.Count(), hiddenLayer.Count(), outputLayer.Count() };
 		}

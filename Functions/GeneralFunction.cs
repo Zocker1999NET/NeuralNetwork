@@ -40,15 +40,15 @@ namespace NeuralNetwork.Functions {
 		/// <summary>
 		/// Returns the differential of the function at the certain position.
 		/// </summary>
-		/// <param name="x">The requested position.</param>
+		/// <param name="x">The given input value.</param>
 		/// <returns>The differential of the function.</returns>
 		public abstract double Differential(double x);
 
 		/// <summary>
-		/// Calculates a possible position for the given value.
+		/// Calculates a possible position for the given input value.
 		/// </summary>
 		/// <param name="y"></param>
-		/// <returns></returns>
+		/// <returns>The requested input value.</returns>
 		public virtual double Inverse(double y) {
 			double x = -10;
 			double step = 1;
@@ -68,6 +68,12 @@ namespace NeuralNetwork.Functions {
 			return x + (step / 2);
 		}
 
+		/// <summary>
+		/// Sets the variable parameter to fullfil the given pair of values.
+		/// </summary>
+		/// <param name="x">The given input value.</param>
+		/// <param name="y">The given output value.</param>
+		/// <returns>Whether the parameter was adapted or not.</returns>
 		public virtual bool SetParameterFor(double x, double y) {
 			double oldP = param;
 			param = -10;

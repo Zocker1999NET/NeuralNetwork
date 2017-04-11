@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,9 +28,6 @@ namespace NeuralNetwork {
 			neuron.Network.neurons.Remove(neuron);
 		}
 
-		/// <summary>
-		/// Stores all neurons the current network is working with.
-		/// </summary>
 		private List<GeneralNeuron> neurons;
 		private Random random = new Random();
 		private bool calcPaused = false;

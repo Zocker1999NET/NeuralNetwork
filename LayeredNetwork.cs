@@ -101,7 +101,7 @@ namespace NeuralNetwork {
 		}
 
 		/// <summary>
-		/// Returns the individual counts of all layers.
+		/// Returns the individual neuron counts of all layers.
 		/// </summary>
 		/// <returns>The count of neurons for each layer.</returns>
 		public abstract int[] GetNeuronsCounts();
