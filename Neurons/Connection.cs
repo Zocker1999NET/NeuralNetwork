@@ -23,11 +23,6 @@ namespace NeuralNetwork.Neurons {
 			/// The weight of the connection.
 			/// </summary>
 			double weight = 0f;
-			/// <summary>
-			/// Flags if change was logged by the output neuron.
-			/// Will automatically set back to false when the input neuron asks for the new value.
-			/// </summary>
-			bool change = false;
 
 			/// <summary>
 			/// Generates a new connection and let the output neuron know this.
@@ -63,17 +58,8 @@ namespace NeuralNetwork.Neurons {
 				}
 				set {
 					weight = value;
-					FlagChange();
+					input.flagChange();
 				}
-			}
-
-			/// <summary>
-			/// Allows the output neuron to mark a change of its value.
-			/// Can cause an automatic refresh of the input neuron.
-			/// </summary>
-			internal void FlagChange() {
-				change = true;
-				input.RefreshOutput();
 			}
 
 			/// <summary>
@@ -81,18 +67,7 @@ namespace NeuralNetwork.Neurons {
 			/// </summary>
 			public double WeightedInput {
 				get {
-					change = false;
 					return output.CurrentValue * weight;
-				}
-			}
-
-			/// <summary>
-			/// Gets if a change was logged by the output neuron.
-			/// Will automatically set back to false when the input neuron asks for the new value.
-			/// </summary>
-			public bool Change {
-				get {
-					return change;
 				}
 			}
 

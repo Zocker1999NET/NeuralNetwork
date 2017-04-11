@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -39,6 +39,11 @@ namespace NeuralNetwork.Neurons {
 		/// Represents the current value the neuron returns as output.
 		/// </summary>
 		private double curVal;
+
+		/// <summary>
+		/// Flags a change the neuron has not used for recalculation yet.
+		/// </summary>
+		bool change = false;
 
 		/// <summary>
 		/// The <seealso cref="NeuralNetwork"/> this neuron is part of.
@@ -85,6 +90,25 @@ namespace NeuralNetwork.Neurons {
 		protected abstract double CalculateOutput();
 
 		/// <summary>
+		/// Flags all output connections of this neuron that a change is coming.
+		/// </summary>
+		private void flagChange() {
+			foreach(Connection con in outCon)
+				con.InputNeuron.flagChange();
+		}
+
+		/// <summary>
+		/// Flags a change the neuron has not used for recalculation yet.
+		/// </summary>
+		protected internal bool Change {
+			get => change;
+			set {
+				if(!value)
+					change = value;
+			}
+		}
+
+		/// <summary>
 		/// Refreshes the output.
 		/// If the value has changed, it fires specific events to the connections and to itself.
 		/// </summary>
@@ -95,9 +119,8 @@ namespace NeuralNetwork.Neurons {
 			RangeEx(newVal);
 			if(curVal != newVal) {
 				curVal = newVal;
-				valueChanged(newVal);
-				foreach(Connection con in outCon)
-					con.FlagChange();
+				ValueChanged(newVal);
+				flagChange();
 			}
 		}
 

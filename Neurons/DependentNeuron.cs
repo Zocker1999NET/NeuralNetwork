@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -101,14 +101,10 @@ namespace NeuralNetwork.Neurons {
 		/// </summary>
 		/// <returns>The new output value</returns>
 		protected sealed override double CalculateOutput() {
-			if(Disabled)
-				return 0f;
-			if(net.CalculationPaused)
+			if(!Change || net.CalculationPaused)
 				return CurrentValue;
-			bool change = false;
-			foreach(Connection con in inCon)
-				change = change || con.Change;
-			return ( change ) ? actFunc[sumUpInputs()] : CurrentValue;
+			Change = false;
+			return actFunc[SumUpInputs()];
 		}
 
 		/// <summary>
