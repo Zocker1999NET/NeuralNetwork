@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -58,7 +58,7 @@ namespace NeuralNetwork.Neurons {
 		/// Returns all input connections this neuron is part of.
 		/// </summary>
 		/// <returns>All input connections as array.</returns>
-		public Connection[] getInputConnections() {
+		public Connection[] GetInputConnections() {
 			return inCon.ToArray();
 		}
 
@@ -89,7 +89,7 @@ namespace NeuralNetwork.Neurons {
 		/// Returns the sum of all inputs this neuron are given.
 		/// </summary>
 		/// <returns>The sum of all inputs</returns>
-		protected double sumUpInputs() {
+		protected double SumUpInputs() {
 			double sum = 0f;
 			foreach(Connection con in inCon)
 				sum += con.WeightedInput;

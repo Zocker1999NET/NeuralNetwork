@@ -50,7 +50,7 @@ namespace NeuralNetwork.Neurons {
 		/// Event handler for changed output value, not needed for input neurons.
 		/// </summary>
 		/// <param name="val">The new output value.</param>
-		protected sealed override void valueChanged(double val) {
+		protected sealed override void ValueChanged(double val) {
 		}
 		
 		/// <summary>

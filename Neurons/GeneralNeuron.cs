@@ -17,7 +17,7 @@ namespace NeuralNetwork.Neurons {
 		/// <param name="value">The double value which is to be checked.</param>
 		/// <returns>True if the double value is out of range.</returns>
 		public static bool ValueOutOfRange(double value) {
-			return ( -1 > value || value > 1 );
+			return (-1 > value || value > 1);
 		}
 
 		/// <summary>
@@ -26,7 +26,7 @@ namespace NeuralNetwork.Neurons {
 		/// </summary>
 		/// <param name="value">The double value which is to be checked.</param>
 		/// <param name="type">Defines which kind of value the given one is for the text of the exception.</param>
-		protected static void rangeEx(double value, KindOfFloatValue type = KindOfFloatValue.Unknown) {
+		protected static void RangeEx(double value, KindOfFloatValue type = KindOfFloatValue.Unknown) {
 			if(ValueOutOfRange(value))
 				throw new ValueOutOfRangeException(type, value);
 		}
@@ -76,7 +76,7 @@ namespace NeuralNetwork.Neurons {
 		/// Event handler for changing output values.
 		/// </summary>
 		/// <param name="val">The new output value.</param>
-		protected abstract void valueChanged(double val);
+		protected abstract void ValueChanged(double val);
 
 		/// <summary>
 		/// Calculates a new output value based on may changed input values or any other source.
@@ -92,7 +92,7 @@ namespace NeuralNetwork.Neurons {
 			if(Disabled)
 				return;
 			double newVal = CalculateOutput();
-			rangeEx(newVal);
+			RangeEx(newVal);
 			if(curVal != newVal) {
 				curVal = newVal;
 				valueChanged(newVal);

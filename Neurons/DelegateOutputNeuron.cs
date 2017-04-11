@@ -54,7 +54,7 @@ namespace NeuralNetwork.Neurons {
 		/// Will execute the given output method when the own output value changes.
 		/// </summary>
 		/// <param name="val">The new output value of the neuron.</param>
-		protected sealed override void valueChanged(double val) {
+		protected sealed override void ValueChanged(double val) {
 			outputMeth(val);
 		}
 

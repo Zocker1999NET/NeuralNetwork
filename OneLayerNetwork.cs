@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,7 +22,7 @@ namespace NeuralNetwork {
 		/// <param name="outputCount">The count of the output neurons</param>
 		/// <param name="boolOutput">If true, the output neurons will only return 0 or 1. See <see cref="GenerateOutputNeuron(bool)"/></param>
 		public OneLayerNetwork(int inputCount, int hiddenCount, int outputCount, bool boolOutput) : base(inputCount, outputCount, false, boolOutput) {
-			AddCountToList(hiddenCount, generateHiddenNeuron, hiddenLayer);
+			AddCountToList(hiddenCount, GenerateHiddenNeuron, hiddenLayer);
 			AddConnections(hiddenLayer.ToArray(), inputLayer.ToArray());
 			AddConnections(outputLayer.ToArray(), hiddenLayer.ToArray());
 		}
@@ -41,7 +41,7 @@ namespace NeuralNetwork {
 		/// </summary>
 		/// <param name="config">Optional configuration parameter, changes nothing in this case.</param>
 		/// <returns>The new created neuron.</returns>
-		protected virtual HiddenNeuron generateHiddenNeuron(bool config) {
+		protected virtual HiddenNeuron GenerateHiddenNeuron(bool config) {
 			return new HiddenNeuron(this, new LogisticFunction(NextRandom(2)));
 		}
 

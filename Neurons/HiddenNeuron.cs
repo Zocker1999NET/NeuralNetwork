@@ -21,7 +21,7 @@ namespace NeuralNetwork.Neurons {
 		/// Event handler for changed output value, not needed for hidden neurons.
 		/// </summary>
 		/// <param name="val">The new output value.</param>
-		protected override sealed void valueChanged(double val) { }
+		protected override sealed void ValueChanged(double val) { }
 
 	}
 }

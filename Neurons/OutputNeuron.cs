@@ -17,7 +17,17 @@ namespace NeuralNetwork.Neurons {
 		/// <param name="activationFunction">The activation function the new neuron should use to calculate its output.</param>
 		public OutputNeuron(NeuralNetwork network, GeneralFunction activationFunction) : base(network, activationFunction) { }
 
-		protected override void valueChanged(double val) { }
+		/// <summary>
+		/// Event handler for changing output values.
+		/// </summary>
+		/// <param name="val">The new output value.</param>
+		protected override void ValueChanged(double val) { }
+
+		/// <summary>
+		/// Gets the current value of the neuron as boolean.
+		/// Values below 0.5 are represented as false, higher values as true.
+		/// </summary>
+		public bool BooleanValue => CurrentValue >= 0.5f;
 
 	}
 }
