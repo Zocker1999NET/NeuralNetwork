@@ -28,7 +28,7 @@ namespace NeuralNetwork {
 			neuron.Network.neurons.Remove(neuron);
 		}
 
-		private List<GeneralNeuron> neurons;
+		private List<GeneralNeuron> neurons = new List<GeneralNeuron>();
 		private Random random = new Random();
 		private bool autoCalcPaused = false;
 		/// <summary>
