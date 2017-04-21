@@ -52,7 +52,7 @@ namespace NeuralNetwork.Neurons {
 		/// Returns 0 if a delegate is not given.
 		/// </summary>
 		/// <returns>The new value the delegate would set to the output.</returns>
-		protected override double getCurrentOutputBySource() {
+		protected override double GetCurrentOutputBySource() {
 			if(inputMeth == null)
 				return 0;
 			return inputMeth();

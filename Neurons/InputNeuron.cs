@@ -10,6 +10,10 @@ namespace NeuralNetwork.Neurons {
 	/// </summary>
 	public class InputNeuron : GeneralNeuron {
 
+		/// <summary>
+		/// Represents the next value the neuron will get if another neuron requests a new value.
+		/// Only works if <seealso cref="GetCurrentOutputBySource"/> uses this field.
+		/// </summary>
 		protected double nextValue = 0f;
 
 		/// <summary>
@@ -22,7 +26,7 @@ namespace NeuralNetwork.Neurons {
 		/// Returns the current output the source would set without changing its own current output.
 		/// </summary>
 		/// <returns>The output the source would set.</returns>
-		protected virtual double getCurrentOutputBySource() {
+		protected virtual double GetCurrentOutputBySource() {
 			return nextValue;
 		}
 
@@ -43,7 +47,7 @@ namespace NeuralNetwork.Neurons {
 		protected sealed override double CalculateOutput() {
 			if(Disabled)
 				return 0;
-			return getCurrentOutputBySource();
+			return GetCurrentOutputBySource();
 		}
 
 		/// <summary>

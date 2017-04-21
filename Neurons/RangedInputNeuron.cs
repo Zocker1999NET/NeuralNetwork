@@ -31,7 +31,7 @@ namespace NeuralNetwork.Neurons {
 		/// Converts the given next value from the given range into a compatible range.
 		/// </summary>
 		/// <returns>The converted value in the compatible range [-0.9;0.9].</returns>
-		protected override double getCurrentOutputBySource() {
+		protected override double GetCurrentOutputBySource() {
 			if(low <= nextValue || nextValue <= up)
 				throw new Exception("Next Value not inside the given range!");
 			return ( ( ( nextValue - low ) / ( up - low ) ) * 1.8 ) - .9;
