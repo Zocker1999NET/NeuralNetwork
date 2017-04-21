@@ -11,12 +11,15 @@ namespace NeuralNetwork.Functions {
 	public class LogisticFunction : GeneralFunction {
 
 		/// <summary>
+		/// Generates a linear function with a random parameter.
+		/// </summary>
+		public LogisticFunction() : base(-1d, 1d) { }
+
+		/// <summary>
 		/// Generates a logistic function with the given parameter.
 		/// </summary>
-		/// <param name="propConst"></param>
-		public LogisticFunction(double propConst) {
-			param = propConst;
-		}
+		/// <param name="propConst">The propConst of the function</param>
+		public LogisticFunction(double propConst) : base(propConst) { }
 
 		/// <summary>
 		/// Returns the value of this logistic function.

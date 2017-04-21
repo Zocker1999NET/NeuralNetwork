@@ -10,6 +10,8 @@ namespace NeuralNetwork.Functions {
 	/// </summary>
 	public abstract class GeneralFunction {
 
+		private static readonly Random randomGen = new Random();
+
 		private static bool betw(double v, double v1, double v2) {
 			return v1 > v2 ? v2 <= v && v <= v1 : v1 <= v && v <= v2;
 		}
@@ -29,6 +31,28 @@ namespace NeuralNetwork.Functions {
 		/// The parameter the function is addicted to which can also be modified by neurons.
 		/// </summary>
 		protected double param;
+
+		/// <summary>
+		/// Generates a new function with the given parameter.
+		/// </summary>
+		/// <param name="newParam">The new paramter.</param>
+		public GeneralFunction(double newParam) {
+			param = newParam;
+		}
+
+		/// <summary>
+		/// Generates a new function and uses a random value in the given range as parameter.
+		/// </summary>
+		/// <param name="rangeStart">The begin of the range of the random value.</param>
+		/// <param name="rangeEnd">The end of the range of the random value.</param>
+		public GeneralFunction(double rangeStart, double rangeEnd) {
+			if(rangeStart > rangeEnd) {
+				var d = rangeStart;
+				rangeStart = rangeEnd;
+				rangeEnd = d;
+			}
+			param = (randomGen.NextDouble() * (rangeEnd - rangeStart)) + rangeStart;
+		}
 
 		/// <summary>
 		/// Returns the value of the function at the certain position.

@@ -6,37 +6,37 @@ using System.Threading.Tasks;
 
 namespace NeuralNetwork.Functions {
 	/// <summary>
-	/// Represents a LinearFunction for neurons.
+	/// Represents a BooleanFunction (only returning -1 or 1) for neurons.
 	/// </summary>
-	public class LinearFunction : GeneralFunction {
+	public class BooleanFunction : GeneralFunction {
 
 		/// <summary>
-		/// Generates a linear function with a random parameter.
+		/// Generates a boolean function with the default parameter.
 		/// </summary>
-		public LinearFunction() : base(-2d, 2d) { }
-		
-		/// <summary>
-		/// Generates a linear function with the given parameter.
-		/// </summary>
-		/// <param name="slope">The slope of the function.</param>
-		public LinearFunction(double slope) : base(slope) { }
+		public BooleanFunction() : base(0) { }
 
 		/// <summary>
-		/// Returns the value of this linear function.
+		/// Generates a boolean function with the given parameter.
+		/// </summary>
+		/// <param name="threshold">The threshold which decides if the output is negative or positive.</param>
+		public BooleanFunction(double threshold) : base(threshold) { }
+
+		/// <summary>
+		/// Returns the value of this boolean function.
 		/// </summary>
 		/// <param name="x">The requested position.</param>
 		/// <returns>The value of the function.</returns>
 		public override double Function(double x) {
-			return x * param;
+			return x < param ? -1d : 1d;
 		}
 
 		/// <summary>
-		/// Returns the differential of this linear function.
+		/// Returns the differential of this boolean function.
 		/// </summary>
 		/// <param name="x">The given input value.</param>
 		/// <returns>The differential of the function.</returns>
 		public override double Differential(double x) {
-			return param;
+			return 0d;
 		}
 
 		/// <summary>
@@ -45,7 +45,7 @@ namespace NeuralNetwork.Functions {
 		/// <param name="y">The given output value.</param>
 		/// <returns>The requested input value.</returns>
 		public override double Inverse(double y) {
-			return y / param;
+			return param + y;
 		}
 
 		/// <summary>
@@ -55,7 +55,8 @@ namespace NeuralNetwork.Functions {
 		/// <param name="y">The given output value.</param>
 		/// <returns>Whether the parameter was adapted or not.</returns>
 		public override bool SetParameterFor(double x, double y) {
-			param = y / x;
+			if(this[x] != (y <= 0d ? -1d : 1d))
+				param = x + (0.5d * (x - param));
 			return true;
 		}
 
