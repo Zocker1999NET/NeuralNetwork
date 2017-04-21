@@ -19,6 +19,8 @@ Die gesamte Lizenz, welche allein gültig ist, kann unter diesem Link "[https://
 ## Zielplattformen
 
 Diese Bibliothek ist in C# und für Windows Universal 10.0 mit .NET Framework 4.6 oder höher geschrieben.
-Somit funktioniert diese nur auf Windows 10 Geräten, dabei ist es aber egal, ob es sich dabei um einen PC, ein Tablet, ein Smartphone oder um ein anderes beliebiges Gerät, welches mit Windows 10 kompatibel ist, handelt.
+Somit funktioniert diese auf Windows 10 Geräten, dabei ist es egal, ob es sich dabei um einen PC, ein Tablet, ein Smartphone oder um ein anderes beliebiges Gerät, welches mit Windows 10 kompatibel ist, handelt.
+
+Eventuell funktioniert diese Bibliothek auch mit Mono zusammen, dafür gibt es aber keine Garantie. Explizite Ports auf andere Plattformen sind, sofern sie benötigt werden, gerne willkommen.
 
 Für das Entwickeln und Kompilieren dieser Bibliothek wurde Visual Studio 2015 Community Edition von Microsoft Cooperation genutzt.

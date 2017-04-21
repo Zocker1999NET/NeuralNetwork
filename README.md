@@ -19,6 +19,8 @@ You can find the whole license, which is only valid, at "[https://creativecommon
 ## Target platforms
 
 This library is written in C# and for Windows Universal 10.0 with .NET Framework 4.6 or higher.
-So this library only runs on Windows 10 devices, but no matter, whether they are PCs, tablets, phones or any other kind of device which is compatible to Windows 10.
+So this library runs on all Windows 10 devices, no matter, whether they are PCs, tablets, phones or any other kind of device which is compatible to Windows 10.
 
-For the development of this library, I have used Visual Studio 2015 Community Edition by Microsoft Cooperation.
+Maybe you can also use this libary with Mono, but without any warranty. Explicit ports to other plattforms are, but only if required, welcome.
+
+For the development of this library, I have used Visual Studio 2017 (previously 2015) Community Edition by Microsoft Cooperation.
