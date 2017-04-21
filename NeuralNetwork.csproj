@@ -37,6 +37,7 @@
   </PropertyGroup>
   <ItemGroup>
     <None Include="NetworkTypes.cd" />
+    <None Include="NeuronLayers\NeuronLayerTypes.cd" />
     <None Include="Neurons\NeuronTypes.cd" />
     <None Include="project.json" />
     <None Include="README.de-DE.md" />
@@ -45,6 +46,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Functions\BooleanFunction.cs" />
+    <Compile Include="NeuronLayers\DependentLayer.cs" />
+    <Compile Include="NeuronLayers\GeneralLayer.cs" />
+    <Compile Include="NeuronLayers\HiddenLayer.cs" />
+    <Compile Include="NeuronLayers\InputLayer.cs" />
+    <Compile Include="NeuronLayers\OutputLayer.cs" />
     <Compile Include="Neurons\Connection.cs" />
     <Compile Include="Neurons\DelegateInputNeuron.cs" />
     <Compile Include="Neurons\DelegateOutputNeuron.cs" />
