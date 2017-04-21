@@ -25,9 +25,9 @@ namespace NeuralNetwork.Neurons {
 
 		/// <summary>
 		/// Gets the current value of the neuron as boolean.
-		/// Values below 0.5 are represented as false, higher values as true.
+		/// Values below or same as 0 are represented as false, higher values as true.
 		/// </summary>
-		public bool BooleanValue => CurrentValue >= 0.5f;
+		public bool BooleanValue => 0d < CurrentValue;
 
 	}
 }

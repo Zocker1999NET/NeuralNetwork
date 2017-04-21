@@ -23,6 +23,7 @@ namespace NeuralNetwork {
 		/// The input layer of this network
 		/// </summary>
 		protected List<InputNeuron> inputLayer = new List<InputNeuron>();
+
 		/// <summary>
 		/// The output layer of this network
 		/// </summary>

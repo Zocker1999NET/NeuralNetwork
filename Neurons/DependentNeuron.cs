@@ -27,6 +27,8 @@ namespace NeuralNetwork.Neurons {
 		/// <param name="activationFunction">The activation function the neuron should use.</param>
 		public DependentNeuron(NeuralNetwork network, GeneralFunction activationFunction) : base(network) {
 			actFunc = activationFunction;
+			if(actFunc == null)
+				actFunc = new LogisticFunction();
 		}
 
 		/// <summary>
