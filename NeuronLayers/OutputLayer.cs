@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using NeuralNetwork.Neurons;
 
 namespace NeuralNetwork.NeuronLayers {
-	public class OutputLayer : DependentLayer<OutputNeuron> {
+	internal class OutputLayer : DependentLayer<OutputNeuron> {
 		
 		
 		

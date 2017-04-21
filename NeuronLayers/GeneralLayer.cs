@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using NeuralNetwork.Neurons;
 
 namespace NeuralNetwork.NeuronLayers {
-	public abstract class GeneralLayer<T> where T : GeneralNeuron {
+	internal abstract class GeneralLayer<T> where T : GeneralNeuron {
 		
 		
 		

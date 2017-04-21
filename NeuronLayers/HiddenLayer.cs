@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using NeuralNetwork.Neurons;
 
 namespace NeuralNetwork.NeuronLayers {
-	public class HiddenLayer : DependentLayer<HiddenNeuron> {
+	internal class HiddenLayer : DependentLayer<HiddenNeuron> {
 		
 		
 		

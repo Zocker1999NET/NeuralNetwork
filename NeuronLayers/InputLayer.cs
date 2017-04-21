@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using NeuralNetwork.Neurons;
 
 namespace NeuralNetwork.NeuronLayers {
-	public class InputLayer : GeneralLayer<InputNeuron> {
+	internal class InputLayer : GeneralLayer<InputNeuron> {
 		
 		
 		
