@@ -62,20 +62,12 @@ namespace NeuralNetwork.Neurons {
 		/// <summary>
 		/// Gets the network this neuron is part of.
 		/// </summary>
-		public NeuralNetwork Network {
-			get {
-				return net;
-			}
-		}
+		public NeuralNetwork Network => net;
 
 		/// <summary>
 		/// Indicates if this neuron is disabled.
 		/// </summary>
-		public bool Disabled {
-			get {
-				return net == null;
-			}
-		}
+		public bool Disabled => net == null;
 
 		/// <summary>
 		/// Event handler for changing output values.
