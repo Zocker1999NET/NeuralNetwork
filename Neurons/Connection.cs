@@ -11,6 +11,8 @@ namespace NeuralNetwork.Neurons {
 		/// </summary>
 		public class Connection {
 
+			private static readonly Random randomGen = new Random();
+
 			/// <summary>
 			/// The neuron which sets the value of the connection.
 			/// </summary>
@@ -29,11 +31,10 @@ namespace NeuralNetwork.Neurons {
 			/// </summary>
 			/// <param name="outNeuron">The output neuron which sets the value of the connection.</param>
 			/// <param name="inNeuron">The input neuron which gets the value of the connection.</param>
-			/// <param name="newWeight">The weight of the connection.</param>
-			public Connection(GeneralNeuron outNeuron, DependentNeuron inNeuron, double newWeight) {
+			public Connection(GeneralNeuron outNeuron, DependentNeuron inNeuron) {
 				output = outNeuron;
 				input = inNeuron;
-				weight = newWeight;
+				weight = (randomGen.NextDouble() * 2) - 1;
 				output.outCon.Add(this);
 			}
 
@@ -81,7 +82,7 @@ namespace NeuralNetwork.Neurons {
 				output = null;
 				input.RemoveInputConnection(this);
 				input = null;
-				
+
 			}
 
 		}

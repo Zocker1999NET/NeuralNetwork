@@ -44,16 +44,11 @@ namespace NeuralNetwork.Neurons {
 		/// Adds a new connection this neuron has to the given output neuron with the given weight.
 		/// </summary>
 		/// <param name="source">The output neuron of the new connection.</param>
-		/// <param name="weight">The weight of the new connection.</param>
-		public void AddInputConnection(GeneralNeuron source, double weight) {
-			Connection con = null;
+		public void AddInputConnection(GeneralNeuron source) {
 			foreach(Connection c in inCon)
 				if(c.OutputNeuron == source)
-					con = c;
-			if(con == null)
-				inCon.Add(new Connection(source, this, weight));
-			else
-				con.Weight = weight;
+					return;
+			inCon.Add(new Connection(source, this));
 		}
 
 		/// <summary>

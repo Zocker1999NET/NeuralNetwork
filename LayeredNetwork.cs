@@ -62,7 +62,7 @@ namespace NeuralNetwork {
 		protected void AddConnections(DependentNeuron[] output, GeneralNeuron[] input) {
 			foreach(var o in output)
 				foreach(var i in input)
-					o.AddInputConnection(i, NextRandom());
+					o.AddInputConnection(i);
 		}
 
 		/// <summary>
