@@ -34,17 +34,15 @@ namespace NeuralNetwork.Neurons {
 		/// <summary>
 		/// Gets the activation function of this neuron. Can be changed.
 		/// </summary>
-		public GeneralFunction ActivationFunction {
-			get {
-				return actFunc;
-			}
-		}
+		public GeneralFunction ActivationFunction => actFunc;
 
 		/// <summary>
 		/// Adds a new connection this neuron has to the given output neuron with the given weight.
 		/// </summary>
 		/// <param name="source">The output neuron of the new connection.</param>
-		public void AddInputConnection(GeneralNeuron source) {
+		public void ConnectTo(GeneralNeuron source) {
+			if(Disabled)
+				return;
 			foreach(Connection c in inCon)
 				if(c.OutputNeuron == source)
 					return;
@@ -56,6 +54,8 @@ namespace NeuralNetwork.Neurons {
 		/// </summary>
 		/// <returns>All input connections as array.</returns>
 		public Connection[] GetInputConnections() {
+			if(Disabled)
+				return new Connection[0];
 			return inCon.ToArray();
 		}
 
@@ -64,6 +64,8 @@ namespace NeuralNetwork.Neurons {
 		/// </summary>
 		/// <param name="con"></param>
 		public void RemoveInputConnection(Connection con) {
+			if(Disabled)
+				return;
 			if(con.InputNeuron != this)
 				return;
 			if(con.OutputNeuron == null)
@@ -77,6 +79,8 @@ namespace NeuralNetwork.Neurons {
 		/// </summary>
 		/// <param name="source">The neuron of whose connection should be removed.</param>
 		public void RemoveInputConnection(GeneralNeuron source) {
+			if(Disabled)
+				return;
 			foreach(Connection c in inCon)
 				if(c.OutputNeuron == source)
 					RemoveInputConnection(c);
@@ -98,6 +102,8 @@ namespace NeuralNetwork.Neurons {
 		/// </summary>
 		/// <returns>The new output value</returns>
 		protected sealed override double CalculateOutput() {
+			if(Disabled)
+				return 0d;
 			if(!Change || net.CalculationPaused)
 				return CurrentValue;
 			Change = false;
@@ -108,9 +114,9 @@ namespace NeuralNetwork.Neurons {
 		/// Removes this neuron and all connections this neuron has.
 		/// </summary>
 		public sealed override void RemoveNeuron() {
-			base.RemoveNeuron();
-			if(net == null)
+			if(Disabled)
 				return;
+			base.RemoveNeuron();
 			foreach(Connection c in inCon)
 				c.RemoveConnection();
 		}

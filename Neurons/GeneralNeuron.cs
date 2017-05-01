@@ -16,9 +16,7 @@ namespace NeuralNetwork.Neurons {
 		/// </summary>
 		/// <param name="value">The double value which is to be checked.</param>
 		/// <returns>True if the double value is out of range.</returns>
-		public static bool ValueOutOfRange(double value) {
-			return (-1 > value || value > 1);
-		}
+		public static bool ValueOutOfRange(double value) => (-1 > value || value > 1);
 
 		/// <summary>
 		/// Throws a specific ValueOutOfRangeException if the given value is out of range.
@@ -100,6 +98,8 @@ namespace NeuralNetwork.Neurons {
 			}
 		}
 
+
+
 		/// <summary>
 		/// Refreshes the output.
 		/// If the value has changed, it fires specific events to the connections and to itself.
@@ -132,9 +132,7 @@ namespace NeuralNetwork.Neurons {
 		/// Returns all output connections this neuron is part of.
 		/// </summary>
 		/// <returns>All output connections as array.</returns>
-		public Connection[] GetOutputConnections() {
-			return outCon.ToArray();
-		}
+		public Connection[] GetOutputConnections() => outCon.ToArray();
 
 		/// <summary>
 		/// Removes this neuron and all connections this neuron has.
@@ -145,6 +143,7 @@ namespace NeuralNetwork.Neurons {
 			NeuralNetwork.UnregisterNeuron(this);
 			foreach(Connection c in outCon)
 				c.RemoveConnection();
+			net = null;
 		}
 
 	}

@@ -32,35 +32,27 @@ namespace NeuralNetwork {
 		/// </summary>
 		/// <param name="config">Optional configuration parameter, changes nothing in this case.</param>
 		/// <returns>The new created neuron.</returns>
-		protected override InputNeuron GenerateInputNeuron(bool config) {
-			return new InputNeuron(this);
-		}
+		protected override InputNeuron GenerateInputNeuron(bool config) => new InputNeuron(this);
 
 		/// <summary>
 		/// Generates a new hidden neuron this kind of network should use.
 		/// </summary>
 		/// <param name="config">Optional configuration parameter, changes nothing in this case.</param>
 		/// <returns>The new created neuron.</returns>
-		protected virtual HiddenNeuron GenerateHiddenNeuron(bool config) {
-			return new HiddenNeuron(this, new LogisticFunction());
-		}
+		protected virtual HiddenNeuron GenerateHiddenNeuron(bool config) => new HiddenNeuron(this, new LogisticFunction());
 
 		/// <summary>
 		/// Generates a new output neuron this kind of network should use.
 		/// </summary>
 		/// <param name="config">Optional configuration parameter, see boolOutput of <see cref="OneLayerNetwork(int, int, int, bool)"/> for this case.</param>
 		/// <returns>The new created neuron.</returns>
-		protected override OutputNeuron GenerateOutputNeuron(bool config) {
-			return config ? new OutputNeuron(this, new BooleanFunction()) : new OutputNeuron(this, new LogisticFunction());
-		}
+		protected override OutputNeuron GenerateOutputNeuron(bool config) => config ? new OutputNeuron(this, new BooleanFunction()) : new OutputNeuron(this, new LogisticFunction());
 
 		/// <summary>
 		/// Returns the individual counts of all layers.
 		/// </summary>
 		/// <returns>The count of neurons for each layer.</returns>
-		public override sealed int[] GetNeuronsCounts() {
-			return new int[] { inputLayer.Count(), hiddenLayer.Count(), outputLayer.Count() };
-		}
+		public override sealed int[] GetNeuronsCounts() => new int[] { inputLayer.Count(), hiddenLayer.Count(), outputLayer.Count() };
 
 	}
 }

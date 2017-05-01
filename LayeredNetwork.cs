@@ -62,7 +62,7 @@ namespace NeuralNetwork {
 		protected void AddConnections(DependentNeuron[] output, GeneralNeuron[] input) {
 			foreach(var o in output)
 				foreach(var i in input)
-					o.AddInputConnection(i);
+					o.ConnectTo(i);
 		}
 
 		/// <summary>
@@ -111,9 +111,7 @@ namespace NeuralNetwork {
 		/// Returns the count of layers this network has.
 		/// </summary>
 		/// <returns>The count of layers.</returns>
-		public int GetLayerCounts() {
-			return GetNeuronsCounts().Count();
-		}
+		public int GetLayerCounts() => GetNeuronsCounts().Count();
 
 		/// <summary>
 		/// Gets the counts of neurons in this network.

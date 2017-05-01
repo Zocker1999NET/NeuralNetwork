@@ -24,9 +24,7 @@ namespace NeuralNetwork {
 		/// Unregisters the given neuron from its network.
 		/// </summary>
 		/// <param name="neuron">The neuron which is to be unregistered.</param>
-		internal static void UnregisterNeuron(GeneralNeuron neuron) {
-			neuron.Network.neurons.Remove(neuron);
-		}
+		internal static void UnregisterNeuron(GeneralNeuron neuron) => neuron.Network.neurons.Remove(neuron);
 
 		private List<GeneralNeuron> neurons = new List<GeneralNeuron>();
 		private Random random = new Random();
@@ -65,25 +63,19 @@ namespace NeuralNetwork {
 		/// <summary>
 		/// Continues all automatic calculations and recalculates everything based on older changes.
 		/// </summary>
-		public void ContinueCalculation() {
-			CalculationPaused = false;
-		}
+		public void ContinueCalculation() => CalculationPaused = false;
 
 		/// <summary>
 		/// Pauses all automatic calculations in this network.
 		/// </summary>
-		public void PauseCalculation() {
-			CalculationPaused = true;
-		}
+		public void PauseCalculation() => CalculationPaused = true;
 
 		/// <summary>
 		/// Checks if the given neuron is registered in this network.
 		/// </summary>
 		/// <param name="neuron"></param>
 		/// <returns></returns>
-		public bool IsNeuronRegistered(GeneralNeuron neuron) {
-			return neurons.IndexOf(neuron) != -1;
-		}
+		public bool IsNeuronRegistered(GeneralNeuron neuron) => neurons.IndexOf(neuron) != -1;
 
 		/// <summary>
 		/// Gets the current count of neurons registered in this network.

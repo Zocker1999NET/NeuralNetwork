@@ -38,25 +38,19 @@ namespace NeuralNetwork.Neurons {
 				output.outCon.Add(this);
 			}
 
-			internal GeneralNeuron OutputNeuron {
-				get {
-					return output;
-				}
+			internal Connection(GeneralNeuron outNeuron, DependentNeuron inNeuron, ISupervisingConnection supervisor) : this(outNeuron,inNeuron) {
+				supervisor.ConnectionRemoved += supervisor_ConnectionRemoved;
 			}
 
-			internal DependentNeuron InputNeuron {
-				get {
-					return input;
-				}
-			}
+			internal GeneralNeuron OutputNeuron => output;
+
+			internal DependentNeuron InputNeuron => input;
 
 			/// <summary>
 			/// Gets or sets the weight of the connection. Changes of the weight also causes an automatic refresh of the input neuron.
 			/// </summary>
 			public double Weight {
-				get {
-					return weight;
-				}
+				get => weight;
 				set {
 					weight = value;
 					input.flagChange();
@@ -66,11 +60,7 @@ namespace NeuralNetwork.Neurons {
 			/// <summary>
 			/// Gets the current value of the connection, weight already observed.
 			/// </summary>
-			public double WeightedInput {
-				get {
-					return output.CurrentValue * weight;
-				}
-			}
+			public double WeightedInput => output.CurrentValue * weight;
 
 			/// <summary>
 			/// Removes this connection.
@@ -82,8 +72,10 @@ namespace NeuralNetwork.Neurons {
 				output = null;
 				input.RemoveInputConnection(this);
 				input = null;
-
+				//TODO: Remove connection class
 			}
+
+			private void supervisor_ConnectionRemoved(object sender, EventArgs e) => RemoveConnection();
 
 		}
 	}

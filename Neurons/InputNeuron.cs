@@ -26,9 +26,7 @@ namespace NeuralNetwork.Neurons {
 		/// Returns the current output the source would set without changing its own current output.
 		/// </summary>
 		/// <returns>The output the source would set.</returns>
-		protected virtual double GetCurrentOutputBySource() {
-			return nextValue;
-		}
+		protected virtual double GetCurrentOutputBySource() => nextValue;
 
 		/// <summary>
 		/// Tries to set the given value to the next value of this neuron.
@@ -54,8 +52,7 @@ namespace NeuralNetwork.Neurons {
 		/// Event handler for changed output value, not needed for input neurons.
 		/// </summary>
 		/// <param name="val">The new output value.</param>
-		protected sealed override void ValueChanged(double val) {
-		}
+		protected sealed override void ValueChanged(double val) { }
 		
 		/// <summary>
 		/// Removes this neuron and all connections this neuron had.

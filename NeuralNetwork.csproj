@@ -46,6 +46,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Functions\BooleanFunction.cs" />
+    <Compile Include="Interfaces.cs" />
+    <Compile Include="NeuronLayers\Connection.cs" />
     <Compile Include="NeuronLayers\DependentLayer.cs" />
     <Compile Include="NeuronLayers\GeneralLayer.cs" />
     <Compile Include="NeuronLayers\HiddenLayer.cs" />

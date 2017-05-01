@@ -1,37 +1,50 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="NeuralNetwork.NeuronLayers.OutputLayer" Collapsed="true">
+  <Class Name="NeuralNetwork.NeuronLayers.OutputLayer">
     <Position X="9" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>NeuronLayers\OutputLayer.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="NeuralNetwork.NeuronLayers.InputLayer" Collapsed="true">
+  <Class Name="NeuralNetwork.NeuronLayers.InputLayer">
     <Position X="9" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>NeuronLayers\InputLayer.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="NeuralNetwork.NeuronLayers.HiddenLayer" Collapsed="true">
+  <Class Name="NeuralNetwork.NeuronLayers.HiddenLayer">
     <Position X="9" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>NeuronLayers\HiddenLayer.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="NeuralNetwork.NeuronLayers.GeneralLayer" Collapsed="true">
+  <Class Name="NeuralNetwork.NeuronLayers.GeneralLayer">
     <Position X="0.5" Y="0.5" Width="1.5" />
+    <NestedTypes>
+      <Class Name="NeuralNetwork.NeuronLayers.GeneralLayer.Connection" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>NeuronLayers\Connection.cs</NewMemberFileName>
+        </TypeIdentifier>
+        <Lollipop Position="0.2" />
+      </Class>
+      <Delegate Name="NeuralNetwork.NeuronLayers.GeneralLayer.NeuronGeneratorDelegate&lt;T&gt;" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>NeuronLayers\GeneralLayer.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>NeuronLayers\GeneralLayer.cs</FileName>
+      <HashCode>AAAgABEAIAAAAABAACAgQAAAAAAQAAAgQAAAAAQAAAA=</HashCode>
+      <FileName>NeuronLayers\Connection.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="NeuralNetwork.NeuronLayers.DependentLayer" Collapsed="true">
+  <Class Name="NeuralNetwork.NeuronLayers.DependentLayer">
     <Position X="3.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAADAAAAAAAAABQAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>NeuronLayers\DependentLayer.cs</FileName>
     </TypeIdentifier>
   </Class>
